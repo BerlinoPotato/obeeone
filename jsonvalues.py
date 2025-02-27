@@ -1,0 +1,30 @@
+# values.py
+
+values = {
+    "Shell Fabric": ["FW01058379-0001", "FW02011234-0002", "FW03098765-0003"],
+    "Fit": ["Classic", "Slim", "Fit"],
+    "Size": ["S", "M", "L", "XL"],
+    "Adjustment Body Length": [1, 2, 3],
+    "Adjustment Right Sleeve Length": [1, 2, 3],
+    "Adjustment Length Sleeve Length": [1, 2, 3],
+    "Adjustment Collar": [0.5, 1, 1.5],
+    "Collar Style": ["Hidden Button-Down", "Spread", "Classic"],
+    "Cuff Style": ["Single Button Square", "Double Button Round"],
+    "Placket Style": ["French", "Standard"],
+    "Button": ["White", "Black", "Blue"],
+    "Back Style": ["Back Dart", "Plain"],
+    "Yoke": ["Split Yoke", "Single Piece"],
+    "Hem Shape": ["Straight", "Rounded"],
+    "Pocket Style": ["No Pocket", "V-Shaped"],
+    "Pocket Position": ["No Pocket", "Left", "Right"],
+    "Monogram Font Style": ["Block", "Script"],
+    "Monogram Location": ["Left Cuff", "Inside Collar"],
+    "Monogram Initial": ["ABC", "XYZ"],
+    "Monogram Color": ["Pink", "Blue"],
+    "Contrast Fabric": ["FK00016308-0005", "FK00099999-0006"],
+    "Contrast Fabric Location": ["Inside Cuff", "Inside Collar"],
+    "Contrast Stitch": ["Pink", "Red"],
+    "Contrast Stitch Location": ["Buttons and Button Holes", "Seams"],
+    "Piping": ["Red", "Blue"],
+    "Piping Location": ["Cuff Only", "Collar Only"]
+}
