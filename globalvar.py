@@ -181,7 +181,7 @@ gv_fldr_collar                              = 'collar'
 gv_fldr_cuff                                = 'cuff'
 gv_fldr_placket                             = 'placket'
 gv_fldr_pocket_main                         = 'pocket main'
-gv_fldr_pocket_sub                          = 'pocket second'
+gv_fldr_pocket_sub                          = 'pocket two3' #'pocket second'
 
 gv_fldrFbrIndx                              = ['','',gv_fldr_body,gv_fldr_placket,gv_fldr_pocket_main,
                                                 gv_fldr_pocket_sub,gv_fldr_cuff,gv_fldr_collar, 

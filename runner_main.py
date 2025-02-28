@@ -45,23 +45,37 @@ from services_removecolor import *
 
 
 
-input_folder = "source/contrast01"
-output_folder = "output/contrast02"
-process_folder(input_folder, output_folder)
+# input_folder = "source/contrast01"
+# output_folder = "output/contrast02"
+# process_folder(input_folder, output_folder)
 
 
 lv_shirtfeatures = (
-    gv_fb_FK00016308_0002,
+    gv_fb_FW01024009_0011,
     gv_cntrst_blue,
     gv_body_bd_spltyk,          #body
     gv_plck_french,            #placket
     gv_pckt_western,            #pocket main
     gv_pckt_western,            #pocket sub
-    gv_cff_singlebtn_round,   #cuff
+    gv_cff_singlebtn_square,   #cuff
     gv_clr_banded,              #collar
     gv_cntrst_Collar[1],
     gv_cntrst_Cuff[1]    
 )
 
-# combineshirt(*lv_shirtfeatures)
+lv_filename = combineshirt(*lv_shirtfeatures)
+
+
+combineCanvas(
+    lv_filename,
+    gv_08_Ivory,
+    gv_08_Ivory,
+    gv_08_Ivory,
+    gv_08_Ivory,
+    '08',    
+    gv_14_Navy,
+    gv_14_Navy,
+    gv_14_Navy,
+    gv_14_Navy)
+
 

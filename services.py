@@ -613,43 +613,7 @@ def thread_Button_cc_cropped():
         saveCanvas(img_resized, gv_Folder_ThreadeButton_Origin_SingleCenter, img_file)
 
         
-def combineCanvas(
-    ipThrBtnHl_Placket, 
-    ipThrBtnHl_Pocket, 
-    ipThrBtnHl_Cuff, 
-    ipThrBtnHl_Collar, 
-    ipButton, 
-    ipThrButton_Placket, 
-    ipThrButton_Pocket, 
-    ipThrButton_Cuff, 
-    ipThrButton_Collar):
-    
-    final_canvas = Image.new("RGBA", gv_ImageSize, (255, 255, 255, 0))
-    
-    
-    final_canvas = Image.open("source/body/body_02_striped_contrast.png").convert("RGBA")
-    
-    final_canvas = Image.alpha_composite(final_canvas, thread_Btnhole_placket(ipThrBtnHl_Placket))
-    
-    final_canvas = Image.alpha_composite(final_canvas, thread_Btnhole_placket(ipThrBtnHl_Placket))
-    final_canvas = Image.alpha_composite(final_canvas, thread_Btnhole_pocket(ipThrBtnHl_Pocket))
-    final_canvas = Image.alpha_composite(final_canvas, thread_Btnhole_cuff(ipThrBtnHl_Cuff))
-    # final_canvas = Image.alpha_composite(final_canvas, thread_Btnhole_collar(ipThrBtnHl_Collar))
-    
-    final_canvas = Image.alpha_composite(final_canvas, button_placket(ipButton))
-    final_canvas = Image.alpha_composite(final_canvas, button_pocket(ipButton))
-    final_canvas = Image.alpha_composite(final_canvas, button_cuff(ipButton))
-    # final_canvas = Image.alpha_composite(final_canvas, button_collar(ipButton))
-    
-    final_canvas = Image.alpha_composite(final_canvas, thread_button_placket(ipThrButton_Placket))
-    final_canvas = Image.alpha_composite(final_canvas, thread_button_pocket(ipThrButton_Pocket))
-    final_canvas = Image.alpha_composite(final_canvas, thread_button_cuff(ipThrButton_Cuff))
-    # final_canvas = Image.alpha_composite(final_canvas, thread_button_collar(ipThrButton_Collar))
-    
 
-    final_canvas.show()
-    # final_canvas.save(f"output/tmp/combinedAllTrims_{randint(1, 999999999)}.png")
-    
 
 def getFile(ipFilePath):
     # file_path = "source/body/body_02_striped_contrast.png"
@@ -686,5 +650,47 @@ def combineshirt(*ipshirtsfeatures):
                     final_canvas = Image.alpha_composite(final_canvas, lv_filelocation)
         
         
-    final_canvas.show()
+    # final_canvas.show()
+    lv_filename = f"output/tmp/combinedAllTrims_{randint(1, 999999999)}.png"
+    final_canvas.save(lv_filename)
     
+    return lv_filename
+    
+    
+def combineCanvas(ipBaseImage,
+    ipThrBtnHl_Placket, 
+    ipThrBtnHl_Pocket, 
+    ipThrBtnHl_Cuff, 
+    ipThrBtnHl_Collar, 
+    ipButton, 
+    ipThrButton_Placket, 
+    ipThrButton_Pocket, 
+    ipThrButton_Cuff, 
+    ipThrButton_Collar):
+    
+    final_canvas = Image.new("RGBA", gv_ImageSize, (255, 255, 255, 0))
+    
+    
+    final_canvas = Image.open(ipBaseImage).convert("RGBA")
+    
+    final_canvas = Image.alpha_composite(final_canvas, thread_Btnhole_placket(ipThrBtnHl_Placket))
+    
+    final_canvas = Image.alpha_composite(final_canvas, thread_Btnhole_placket(ipThrBtnHl_Placket))
+    final_canvas = Image.alpha_composite(final_canvas, thread_Btnhole_pocket(ipThrBtnHl_Pocket))
+    final_canvas = Image.alpha_composite(final_canvas, thread_Btnhole_cuff(ipThrBtnHl_Cuff))
+    # final_canvas = Image.alpha_composite(final_canvas, thread_Btnhole_collar(ipThrBtnHl_Collar))
+    
+    final_canvas = Image.alpha_composite(final_canvas, button_placket(ipButton))
+    final_canvas = Image.alpha_composite(final_canvas, button_pocket(ipButton))
+    final_canvas = Image.alpha_composite(final_canvas, button_cuff(ipButton))
+    # final_canvas = Image.alpha_composite(final_canvas, button_collar(ipButton))
+    
+    final_canvas = Image.alpha_composite(final_canvas, thread_button_placket(ipThrButton_Placket))
+    final_canvas = Image.alpha_composite(final_canvas, thread_button_pocket(ipThrButton_Pocket))
+    final_canvas = Image.alpha_composite(final_canvas, thread_button_cuff(ipThrButton_Cuff))
+    # final_canvas = Image.alpha_composite(final_canvas, thread_button_collar(ipThrButton_Collar))
+    
+
+    final_canvas.show()
+    # final_canvas.save(f"output/tmp/combinedAllTrims_{randint(1, 999999999)}.png")
+        
