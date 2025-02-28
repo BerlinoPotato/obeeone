@@ -42,14 +42,18 @@ gv_Position_Y1_Placket                   = 920
 gv_Position_Y2_Placket                   = 1270
 gv_Position_Y3_Placket                   = 1620
 gv_Position_X_Pocket                     = 1400
-gv_Position_Y_Pocket                     = 1480
+gv_Position_Y_Pocket                     = 1490
 gv_Position_X_Cuff                       = 617
-gv_Position_Y_Cuff                       = 1415
+gv_Position_Y_Cuff                       = 1435
 gv_Position_X1_Collar                    = 762
 gv_Position_X2_Collar                    = 1125
 gv_Position_Y_Collar                     = 750
 gv_fctResize_ThreadButtonHole_Main       = 55
 gv_fctResize_ThreadButtonHole_Collar     = 40
+
+gv_Position_X_Label                      = 870
+gv_Position_Y_Label                      = 315
+gv_fctResize_Label                       = 23
 
 gv_WCorr_Btnhl_Btn                       = -17
 gv_HCorr_Btnhl_Btn                       = 8

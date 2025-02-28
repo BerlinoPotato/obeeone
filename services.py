@@ -612,7 +612,30 @@ def thread_Button_cc_cropped():
         
         saveCanvas(img_resized, gv_Folder_ThreadeButton_Origin_SingleCenter, img_file)
 
-        
+
+def murano_label(ipFileId=''):
+    # image_files = [f for f in os.listdir(gv_Folder_ThreadButtonHole_Origin_Single) if f.endswith(".png")]    
+
+    positions = [(gv_Position_X_Label, gv_Position_Y_Label)]
+    
+    
+    img_path = os.path.join(f'source/label', 'murano_shirt_label.png')
+    
+    obj = Image.open(img_path).convert("RGBA")
+    new_width = int(obj.width * (gv_fctResize_Label / 100))
+    new_height = int(obj.height * (gv_fctResize_Label / 100))
+    obj = obj.resize((new_width, new_height))
+
+    canvas = Image.new("RGBA", gv_ImageSize, (255, 255, 255, 0))
+
+    for i, pos in enumerate(positions):
+        rotated_obj = obj.rotate(0, expand=True)  # Rotate 0, 90, 180 degrees
+        canvas.paste(rotated_obj, pos, rotated_obj)  # Paste with transparency
+
+    # saveCanvas(canvas, gv_Folder_ThreadButtonHole_Cuff, f'{gv_filename_ThreadBtnHlCuff}_muranolabel.png')          
+
+    # canvas.show()
+    return canvas        
 
 
 def getFile(ipFilePath):
@@ -651,7 +674,7 @@ def combineshirt(*ipshirtsfeatures):
         
         
     # final_canvas.show()
-    lv_filename = f"output/tmp/combinedAllTrims_{randint(1, 999999999)}.png"
+    lv_filename = f"output/tmp/shirtwithfeatures_{randint(1, 999999999)}.png"
     final_canvas.save(lv_filename)
     
     return lv_filename
@@ -690,7 +713,13 @@ def combineCanvas(ipBaseImage,
     final_canvas = Image.alpha_composite(final_canvas, thread_button_cuff(ipThrButton_Cuff))
     # final_canvas = Image.alpha_composite(final_canvas, thread_button_collar(ipThrButton_Collar))
     
+    final_canvas = Image.alpha_composite(final_canvas, murano_label())
 
     final_canvas.show()
-    # final_canvas.save(f"output/tmp/combinedAllTrims_{randint(1, 999999999)}.png")
+    
+    lv_filename = f"output/tmp/shirtwithtrims_{randint(1, 999999999)}.png"
+    final_canvas.save(lv_filename)
+    print(lv_filename)
+    
+    
         
