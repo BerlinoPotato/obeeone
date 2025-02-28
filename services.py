@@ -2,6 +2,7 @@ from globalvar import *
 from PIL import Image
 import os
 from datetime import datetime, timedelta
+from random import randint
 
 
 def getTimeSeconds():
@@ -612,8 +613,6 @@ def thread_Button_cc_cropped():
         saveCanvas(img_resized, gv_Folder_ThreadeButton_Origin_SingleCenter, img_file)
 
         
-
-
 def combineCanvas(
     ipThrBtnHl_Placket, 
     ipThrBtnHl_Pocket, 
@@ -627,21 +626,65 @@ def combineCanvas(
     
     final_canvas = Image.new("RGBA", gv_ImageSize, (255, 255, 255, 0))
     
+    
+    final_canvas = Image.open("source/body/body_02_striped_contrast.png").convert("RGBA")
+    
+    final_canvas = Image.alpha_composite(final_canvas, thread_Btnhole_placket(ipThrBtnHl_Placket))
+    
     final_canvas = Image.alpha_composite(final_canvas, thread_Btnhole_placket(ipThrBtnHl_Placket))
     final_canvas = Image.alpha_composite(final_canvas, thread_Btnhole_pocket(ipThrBtnHl_Pocket))
     final_canvas = Image.alpha_composite(final_canvas, thread_Btnhole_cuff(ipThrBtnHl_Cuff))
-    final_canvas = Image.alpha_composite(final_canvas, thread_Btnhole_collar(ipThrBtnHl_Collar))
+    # final_canvas = Image.alpha_composite(final_canvas, thread_Btnhole_collar(ipThrBtnHl_Collar))
     
     final_canvas = Image.alpha_composite(final_canvas, button_placket(ipButton))
-    final_canvas = Image.alpha_composite(final_canvas, button_pocket('xxx'))
+    final_canvas = Image.alpha_composite(final_canvas, button_pocket(ipButton))
     final_canvas = Image.alpha_composite(final_canvas, button_cuff(ipButton))
-    final_canvas = Image.alpha_composite(final_canvas, button_collar(ipButton))
+    # final_canvas = Image.alpha_composite(final_canvas, button_collar(ipButton))
     
     final_canvas = Image.alpha_composite(final_canvas, thread_button_placket(ipThrButton_Placket))
     final_canvas = Image.alpha_composite(final_canvas, thread_button_pocket(ipThrButton_Pocket))
     final_canvas = Image.alpha_composite(final_canvas, thread_button_cuff(ipThrButton_Cuff))
-    final_canvas = Image.alpha_composite(final_canvas, thread_button_collar(ipThrButton_Collar))
+    # final_canvas = Image.alpha_composite(final_canvas, thread_button_collar(ipThrButton_Collar))
     
 
     final_canvas.show()
-    final_canvas.save(f"tmp/combinedAllTrims_{getTimeSeconds()}.png")
+    # final_canvas.save(f"output/tmp/combinedAllTrims_{randint(1, 999999999)}.png")
+    
+
+def getFile(ipFilePath):
+    # file_path = "source/body/body_02_striped_contrast.png"
+    file_path = ipFilePath
+    
+    if os.path.exists(file_path):
+        try:    
+            return Image.open(file_path).convert("RGBA")
+        except: 
+            return None
+    return None
+    
+
+def combineshirt(*ipshirtsfeatures):
+    
+    final_canvas = Image.new("RGBA", gv_ImageSize, (255, 255, 255, 0))
+
+    for lp_indx, value in enumerate(ipshirtsfeatures):
+        if lp_indx >= gvi_bodyandhem and lp_indx <= gvi_collar and ipshirtsfeatures[gvi_shellfabric]:
+            lv_filelocation = getFile(f'{gv_previewimages}/{gv_shellfabrics}/{ipshirtsfeatures[gvi_shellfabric]}/{gv_fldrFbrIndx[lp_indx]}/{ipshirtsfeatures[lp_indx]}')
+            
+            if lv_filelocation != None:
+                final_canvas = Image.alpha_composite(final_canvas, lv_filelocation)
+
+        if lp_indx > gvi_collar and ipshirtsfeatures[gvi_contrstfabric]:
+            
+            if ipshirtsfeatures[lp_indx]:
+                
+                lv_type = ipshirtsfeatures[gvi_collar] if gv_fldrFbrIndx[lp_indx] == gv_fldr_collar else ipshirtsfeatures[gvi_cuff]
+                
+                lv_filelocation = getFile(f'{gv_previewimages}/{gv_contrastfabrics}/{ipshirtsfeatures[1]}/{gv_fldrFbrIndx[lp_indx]}/{lv_type}')
+                
+                if lv_filelocation != None:
+                    final_canvas = Image.alpha_composite(final_canvas, lv_filelocation)
+        
+        
+    final_canvas.show()
+    

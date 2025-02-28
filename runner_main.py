@@ -19,39 +19,49 @@ from services_removecolor import *
 # button_pocket()
 # button_cuff()
 # button_collar()
+# button_cc_cropped()
+# button_collar_center()
+
 
 # thread_Button_cropped()
 # thread_button_placket()
 # thread_button_pocket()
 # thread_button_cuff()
 # thread_button_collar()
-
-
-# combineCanvas(
-#     gv_19_Red,
-#     gv_19_Red,
-#     gv_19_Red,
-#     gv_19_Red,
-#     '08',    
-#     gv_04_Aqua_thrbtn_thick,
-#     gv_03_Black_thrbtn_thick,
-#     gv_03_Black_thrbtn_thick,
-#     gv_02_Black_thrbtn_light)
-
-
-
-# button_cc_cropped()
-# button_collar_center()
-
-
 # thread_Button_cc_cropped()
-
 # thread_button_collarCenter()
 
 
+# combineCanvas(
+#     gv_08_Ivory,
+#     gv_08_Ivory,
+#     gv_08_Ivory,
+#     gv_08_Ivory,
+#     '08',    
+#     gv_14_Navy,
+#     gv_14_Navy,
+#     gv_14_Navy,
+#     gv_14_Navy)
 
-# input_folder = "source/contrast01"
-# output_folder = "output/contrast01"
-# process_folder(input_folder, output_folder)
 
+
+input_folder = "source/contrast01"
+output_folder = "output/contrast02"
+process_folder(input_folder, output_folder)
+
+
+lv_shirtfeatures = (
+    gv_fb_FK00016308_0002,
+    gv_cntrst_blue,
+    gv_body_bd_spltyk,          #body
+    gv_plck_french,            #placket
+    gv_pckt_western,            #pocket main
+    gv_pckt_western,            #pocket sub
+    gv_cff_singlebtn_round,   #cuff
+    gv_clr_banded,              #collar
+    gv_cntrst_Collar[1],
+    gv_cntrst_Cuff[1]    
+)
+
+# combineshirt(*lv_shirtfeatures)
 
