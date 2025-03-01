@@ -6,16 +6,16 @@ from services  import *
 #----------------------- Fabrics -----------------------------
 
 lv_ShellfabricCode              = gv_fb_FK00016308_0002
-lv_ContrastfabricCode           = gv_cntrst_blue
+lv_ContrastfabricCode           = gv_cntrst_grey
 
 #-------------------------------------------------------------
 #----------------------- Options -----------------------------
-lv_BackAndYoke                  = gv_body_bd_spltyk
+lv_BackAndYoke                  = gv_body_bp_spltyk
 lv_Placket                      = gv_plck_seton
-lv_PocketMain                   = gv_pckt_miteredbuttonthrought
-lv_PocketSecond                 = ''
+lv_PocketMain                   = gv_pckt_pleatedmiterdwithflap
+lv_PocketSecond                 = gv_pckt_pleatedmiterdwithflap
 lv_Cuff                         = gv_cff_singlebtn_round
-lv_Collar                       = gv_clr_spread
+lv_Collar                       = gv_clr_buttondown
 
 #-------------------------------------------------------------
 #----------------------- Contrast ----------------------------
@@ -25,11 +25,11 @@ lv_ContrastCuff                 = gv_cntrst_Cuff[1]
 #-------------------------------------------------------------
 #----------------------- Trims -------------------------------
 
-lv_Button                       = gv_button_AGASSIZXT100
-lv_ThreadButtonHole             = gv_color_Blue
-lv_ThreadButton                 = gv_color_Red
-lv_ThreadButtonHoleCollarCenter = gv_color_Blue
-lv_ThreadButtonCollarCenter     = gv_color_Blue
+lv_Button                       = gv_button_AGASSIZTT2742
+lv_ThreadButtonHole             = gv_color_Green
+lv_ThreadButton                 = ''
+lv_ThreadButtonHoleCollarCenter = ''
+lv_ThreadButtonCollarCenter     = ''
 
 #-------------------------------------------------------------
 #-------------------------------------------------------------

@@ -379,6 +379,6 @@ gv_button_PARIGITT2010                         = 'PARIGI TT2010.png'
 gv_button_QUITOTT1438                          = 'QUITO TT1438.png'
 gv_button_QUITOTT1659                          = 'QUITO TT1659.png'
 gv_button_QUITOTT2010                          = 'QUITO TT2010.png'
-gv_button_SOUVATT1438                          = 'SOUVA TT1438.png'
-gv_button_SOUVATT1448                          = 'SOUVA TT1448.png'
+gv_button_SORAVATT1438                          = 'SORAVA TT1438.png'
+gv_button_SORAVATT1448                          = 'SORAVA TT1448.png'
 

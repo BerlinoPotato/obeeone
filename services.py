@@ -187,7 +187,7 @@ def combineshirt(*ipshirtsfeatures):
     lv_ThreadButton                 = ipshirtsfeatures[gvi_color_threadbtn] if ipshirtsfeatures[gvi_color_threadbtn] else ipshirtsfeatures[gvi_color_threadbtnhole]
     lv_ThreadButtonHoleCollarCenter = ipshirtsfeatures[gvi_color_threadbtnhole_cc] if ipshirtsfeatures[gvi_color_threadbtnhole_cc] else ipshirtsfeatures[gvi_color_threadbtnhole]
     lv_ThreadButtonCollarCenter     = ipshirtsfeatures[gvi_color_threadbtn_cc] if ipshirtsfeatures[gvi_color_threadbtn_cc] else ipshirtsfeatures[gvi_color_threadbtnhole]
-        
+    
     
     if gvd_featuretype.get(ipshirtsfeatures[gvi_placket], ['','',''])[lvidx_threadbuttonhole]:        
         final_canvas = addFile(final_canvas, f'{gvd_featuretype[ipshirtsfeatures[gvi_placket]][lvidx_threadbuttonhole]}/{lv_ThreadButtonHole}')    

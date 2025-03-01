@@ -25,10 +25,10 @@ def lift_and_save(source_path, target_path):
     """Remove 5 pixels from top, add 5 transparent pixels to bottom."""
     img = Image.open(source_path)
     
-    lv_liftValue = 8
+    lv_liftValue = 5
     
     if 'main' in source_path:
-        lv_liftValue = 5
+        lv_liftValue = 3
 
     # Crop 5px from the top
     lifted_img = img.crop((0, lv_liftValue, img.width, img.height))
