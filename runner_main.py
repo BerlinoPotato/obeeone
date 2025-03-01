@@ -55,14 +55,14 @@ from services_removecolor import *
 
 
 lv_shirtfeatures = (
-    gv_fb_FK00016308_0002,
+    gv_fb_FK00016308_0005,
     gv_cntrst_blue,
     gv_body_bd_spltyk,          #body
     gv_plck_french,            #placket
-    gv_pckt_western,            #pocket main
+    gv_pckt_pleatedmiterdwithflap,            #pocket main
     gv_pckt_western,            #pocket sub
     gv_cff_singlebtn_mitered,   #cuff
-    gv_clr_spread,              #collar
+    gv_clr_banded,              #collar
     gv_cntrst_Collar[1],
     gv_cntrst_Cuff[1]    
 )

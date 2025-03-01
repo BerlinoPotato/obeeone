@@ -217,9 +217,9 @@ gv_pckt_mitered                             = 'mitered.png'
 gv_pckt_round                               = 'round.png'
 gv_pckt_square                              = 'square.png'
 gv_pckt_vshaped                             = 'v-shaped.png'
-gv_pckt_miteredbuttonthrought               = 'miteredbuttonthrought.png'
-gv_pckt_miteredwithflap                     = 'miteredwithflap.png'
-gv_pckt_pleatedmiterdwithflap               = 'pleatedmiteredwithflap.png'
+gv_pckt_miteredbuttonthrought               = 'mitered button through.png'
+gv_pckt_miteredwithflap                     = 'mitered with flap.png'
+gv_pckt_pleatedmiterdwithflap               = 'pleated mitered with flap.png'
 gv_pckt_western                             = 'western.png'
 
 
