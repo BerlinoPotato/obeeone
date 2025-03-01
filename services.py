@@ -33,374 +33,6 @@ def thread_Btnhole_cropped():
         
         saveCanvas(img_resized, gv_Folder_ThreadButtonHole_Origin_Single, img_file)
 
-
-def thread_Btnhole_cropped():
-    image_files = [f for f in os.listdir(gv_Folder_ThreadButtonHole_Origin) if f.endswith(".png")]
-    image_files.sort()
-    for img_file in image_files:
-        img_path = os.path.join(gv_Folder_ThreadButtonHole_Origin, img_file)
-        img = Image.open(img_path).convert("RGBA")  # Load image with transparency
-
-        cropped = img.crop(gv_cropbox_ThreadButtonHole)
-        img_resized = cropped.resize(gv_finalsize_ThreadButtonHole_cc)
-        
-        saveCanvas(img_resized, gv_Folder_ThreadButtonHole_Origin_CollarCenter, img_file)
-        
-        
-        
-        
-
-def create_trims(ipSourceFolder, ipTargetFolder, ipFileName, ipPositions, ipFctResize, ipRotation=[0,0,0]):
-        
-    image_files = [f for f in os.listdir(ipSourceFolder)]
-    image_files.sort()
-    
-    positions= ipPositions
-    
-    for img_file in image_files:
-        img_path = os.path.join(ipSourceFolder, img_file)
-        
-        obj = Image.open(img_path).convert("RGBA")
-        new_width = int(obj.width * (ipFctResize / 100))
-        new_height = int(obj.height * (ipFctResize / 100))
-        obj = obj.resize((new_width, new_height))
-
-        canvas = Image.new("RGBA", gv_ImageSize, (255, 255, 255, 0))
-
-        for i, pos in enumerate(positions):
-            rotated_obj = obj.rotate(ipRotation[i], expand=True)  # Rotate 0, 90, 180 degrees
-            canvas.paste(rotated_obj, pos, rotated_obj)  # Paste with transparency
-
-        saveCanvas(canvas, ipTargetFolder, f'{ipFileName}_{img_file}')
-
-    
-
-
-def thread_Btnhole_placket(ipFileId=''):
-    # image_files = [f for f in os.listdir(gv_Folder_ThreadButtonHole_Origin_Single) if f.endswith(".png")]
-    
-    image_files = [
-        f for f in os.listdir(gv_Folder_ThreadButtonHole_Origin_Single) 
-        if f.endswith(".png") and (f.startswith(ipFileId) if ipFileId else True)
-    ]
-    
-    image_files.sort()  # Optional: Sort files if order matters
-    positions = [(gv_Position_X_Placket, gv_Position_Y1_Placket), 
-                 (gv_Position_X_Placket, gv_Position_Y2_Placket), 
-                 (gv_Position_X_Placket, gv_Position_Y3_Placket)]
-    
-    for img_file in image_files:
-        img_path = os.path.join(gv_Folder_ThreadButtonHole_Origin_Single, img_file)
-        
-        obj = Image.open(img_path).convert("RGBA")
-        new_width = int(obj.width * (gv_fctResize_ThreadButtonHole_Main / 100))
-        new_height = int(obj.height * (gv_fctResize_ThreadButtonHole_Main / 100))
-        obj = obj.resize((new_width, new_height))
-
-        canvas = Image.new("RGBA", gv_ImageSize, (255, 255, 255, 0))
-
-        for i, pos in enumerate(positions):
-            rotated_obj = obj.rotate(0, expand=True)  # Rotate 0, 90, 180 degrees
-            canvas.paste(rotated_obj, pos, rotated_obj)  # Paste with transparency
-
-        saveCanvas(canvas, gv_Folder_ThreadButtonHole_Placket, f'{gv_filename_ThreadBtnHlPlacket}_{img_file}')
-
-    return canvas
-
-def thread_Btnhole_pocket(ipFileId=''):
-    # image_files = [f for f in os.listdir(gv_Folder_ThreadButtonHole_Origin_Single) if f.endswith(".png")]
-    
-    
-    image_files = [
-        f for f in os.listdir(gv_Folder_ThreadButtonHole_Origin_Single) 
-        if f.endswith(".png") and (f.startswith(ipFileId) if ipFileId else True)
-    ]
-    image_files.sort()  # Optional: Sort files if order matters
-    positions = [(gv_Position_X_Pocket, gv_Position_Y_Pocket)]
-    
-    for img_file in image_files:
-        img_path = os.path.join(gv_Folder_ThreadButtonHole_Origin_Single, img_file)
-        
-        obj = Image.open(img_path).convert("RGBA")
-        new_width = int(obj.width * (gv_fctResize_ThreadButtonHole_Main / 100))
-        new_height = int(obj.height * (gv_fctResize_ThreadButtonHole_Main / 100))
-        obj = obj.resize((new_width, new_height))
-
-        canvas = Image.new("RGBA", gv_ImageSize, (255, 255, 255, 0))
-
-        for i, pos in enumerate(positions):
-            rotated_obj = obj.rotate(0, expand=True)  # Rotate 0, 90, 180 degrees
-            canvas.paste(rotated_obj, pos, rotated_obj)  # Paste with transparency
-
-        saveCanvas(canvas, gv_Folder_ThreadButtonHole_Pocket, f'{gv_filename_ThreadBtnHlPocket}_{img_file}')        
-    
-    return canvas
-
-
-
-        
-        
-def thread_Btnhole_cuff(ipFileId=''):
-    # image_files = [f for f in os.listdir(gv_Folder_ThreadButtonHole_Origin_Single) if f.endswith(".png")]    
-    image_files = [
-        f for f in os.listdir(gv_Folder_ThreadButtonHole_Origin_Single) 
-        if f.endswith(".png") and (f.startswith(ipFileId) if ipFileId else True)
-    ]
-    
-    image_files.sort()  # Optional: Sort files if order matters
-    positions = [(gv_Position_X_Cuff, gv_Position_Y_Cuff)]
-    
-    for img_file in image_files:
-        img_path = os.path.join(gv_Folder_ThreadButtonHole_Origin_Single, img_file)
-        
-        obj = Image.open(img_path).convert("RGBA")
-        new_width = int(obj.width * (gv_fctResize_ThreadButtonHole_Main / 100))
-        new_height = int(obj.height * (gv_fctResize_ThreadButtonHole_Main / 100))
-        obj = obj.resize((new_width, new_height))
-
-        canvas = Image.new("RGBA", gv_ImageSize, (255, 255, 255, 0))
-
-        for i, pos in enumerate(positions):
-            rotated_obj = obj.rotate(0, expand=True)  # Rotate 0, 90, 180 degrees
-            canvas.paste(rotated_obj, pos, rotated_obj)  # Paste with transparency
-
-        saveCanvas(canvas, gv_Folder_ThreadButtonHole_Cuff, f'{gv_filename_ThreadBtnHlCuff}_{img_file}')          
-    
-    return canvas
-        
-        
-def thread_Btnhole_collar(ipFileId=''):
-    # image_files = [f for f in os.listdir(gv_Folder_ThreadButtonHole_Origin_Single) if f.endswith(".png")]
-    
-    image_files = [
-        f for f in os.listdir(gv_Folder_ThreadButtonHole_Origin_Single) 
-        if f.endswith(".png") and (f.startswith(ipFileId) if ipFileId else True)
-    ]
-    
-    image_files.sort()  # Optional: Sort files if order matters
-    positions = [(gv_Position_X1_Collar, gv_Position_Y_Collar), 
-                 (gv_Position_X2_Collar, gv_Position_Y_Collar)]
-    
-    for img_file in image_files:
-        img_path = os.path.join(gv_Folder_ThreadButtonHole_Origin_Single, img_file)
-        
-        obj = Image.open(img_path).convert("RGBA")
-        new_width = int(obj.width * (gv_fctResize_ThreadButtonHole_Collar / 100))
-        new_height = int(obj.height * (gv_fctResize_ThreadButtonHole_Collar / 100))
-        obj = obj.resize((new_width, new_height))
-
-        canvas = Image.new("RGBA", gv_ImageSize, (255, 255, 255, 0))
-
-        for i, pos in enumerate(positions):
-            # rotated_obj = obj.rotate(i * 90, expand=True)  # Rotate 0, 90, 180 degrees
-            # rotated_obj = obj.rotate(90, expand=True)  # Rotate 0, 90, 180 degrees
-            if i == 0:
-                rotated_obj = obj.rotate(-25, expand=True)  # Rotate 0, 90, 180 degrees
-
-            if i == 1 :
-                rotated_obj = obj.rotate(25, expand=True)  # Rotate 0, 90, 180 degrees
-            
-            canvas.paste(rotated_obj, pos, rotated_obj)  # Paste with transparency
-
-        saveCanvas(canvas, gv_Folder_ThreadButtonHole_Collar1, f'{gv_filename_ThreadBtnHlCollar}_{img_file}')          
-        
-    return canvas
-        
-        
-def button_placket(ipFileId=''):
-    # image_files = [f for f in os.listdir(gv_Folder_Button_Origin) if f.endswith(".png")]
-    
-    image_files = [
-        f for f in os.listdir(gv_Folder_Button_Origin) 
-        if f.endswith(".png") and (f.startswith(ipFileId) if ipFileId else True)
-    ]
-    
-    image_files.sort()  # Optional: Sort files if order matters
-    positions = [(gv_Position_X_Placket + gv_WCorr_Btnhl_Btn, gv_Position_Y1_Placket+gv_HCorr_Btnhl_Btn),
-                 (gv_Position_X_Placket + gv_WCorr_Btnhl_Btn, gv_Position_Y2_Placket+gv_HCorr_Btnhl_Btn), 
-                 (gv_Position_X_Placket + gv_WCorr_Btnhl_Btn, gv_Position_Y3_Placket+gv_HCorr_Btnhl_Btn)]
-    
-
-        # Process each image
-    for img_file in image_files:
-        img_path = os.path.join(gv_Folder_Button_Origin, img_file)
-        
-        obj = Image.open(img_path).convert("RGBA")
-        # Calculate new size based on percentage
-        new_width = int(obj.width * (gv_fctResize_Button_Main / 100))
-        new_height = int(obj.height * (gv_fctResize_Button_Main / 100))
-        obj = obj.resize((new_width, new_height))
-        
-
-        # Create blank canvas
-        canvas = Image.new("RGBA", gv_ImageSize, (255, 255, 255, 0))
-
-        # Paste object 3 times with 90-degree rotation
-        for i, pos in enumerate(positions):
-            # rotated_obj = obj.rotate(i * 90, expand=True)  # Rotate 0, 90, 180 degrees
-            # rotated_obj = obj.rotate(90, expand=True)  # Rotate 0, 90, 180 degrees
-            rotated_obj = obj.rotate(0, expand=True)  # Rotate 0, 90, 180 degrees
-            canvas.paste(rotated_obj, pos, rotated_obj)  # Paste with transparency
-            
-        saveCanvas(canvas, gv_Folder_Button_Placket, f'{gv_filename_ButtonPlacket}_{img_file}')          
-    
-    return canvas
-
-
-def button_pocket(ipFileId=''):
-    image_files = [f for f in os.listdir(gv_Folder_Button_Origin) if f.endswith(".png")]
-    
-    image_files = [
-        f for f in os.listdir(gv_Folder_Button_Origin) 
-        if f.endswith(".png") and (f.startswith(ipFileId) if ipFileId else True)
-    ]
-    
-    image_files.sort()  # Optional: Sort files if order matters
-    positions = [(gv_Position_X_Pocket+ gv_WCorr_Btnhl_Btn, gv_Position_Y_Pocket+gv_HCorr_Btnhl_Btn)]
-    
-
-        # Process each image
-    for img_file in image_files:
-        img_path = os.path.join(gv_Folder_Button_Origin, img_file)
-        
-        obj = Image.open(img_path).convert("RGBA")
-        # Calculate new size based on percentage
-        new_width = int(obj.width * (gv_fctResize_Button_Main / 100))
-        new_height = int(obj.height * (gv_fctResize_Button_Main / 100))
-        obj = obj.resize((new_width, new_height))
-        
-
-        # Create blank canvas
-        canvas = Image.new("RGBA", gv_ImageSize, (255, 255, 255, 0))
-
-        # Paste object 3 times with 90-degree rotation
-        for i, pos in enumerate(positions):
-            # rotated_obj = obj.rotate(i * 90, expand=True)  # Rotate 0, 90, 180 degrees
-            # rotated_obj = obj.rotate(90, expand=True)  # Rotate 0, 90, 180 degrees
-            rotated_obj = obj.rotate(0, expand=True)  # Rotate 0, 90, 180 degrees
-            canvas.paste(rotated_obj, pos, rotated_obj)  # Paste with transparency
-            
-        saveCanvas(canvas, gv_Folder_Button_Pocket, f'{gv_filename_ButtonPocket}_{img_file}')   
-    
-    return canvas
-                 
-    
-def button_cuff(ipFileId=''):
-    # image_files = [f for f in os.listdir(gv_Folder_Button_Origin) if f.endswith(".png")]
-    
-    image_files = [
-        f for f in os.listdir(gv_Folder_Button_Origin) 
-        if f.endswith(".png") and (f.startswith(ipFileId) if ipFileId else True)
-    ]
-    
-    image_files.sort()  # Optional: Sort files if order matters
-    positions = [(gv_Position_X_Cuff+ gv_WCorr_Btnhl_Btn, gv_Position_Y_Cuff+gv_HCorr_Btnhl_Btn)]
-    
-
-        # Process each image
-    for img_file in image_files:
-        img_path = os.path.join(gv_Folder_Button_Origin, img_file)
-        
-        obj = Image.open(img_path).convert("RGBA")
-        # Calculate new size based on percentage
-        new_width = int(obj.width * (gv_fctResize_Button_Main / 100))
-        new_height = int(obj.height * (gv_fctResize_Button_Main / 100))
-        obj = obj.resize((new_width, new_height))
-        
-
-        # Create blank canvas
-        canvas = Image.new("RGBA", gv_ImageSize, (255, 255, 255, 0))
-
-        # Paste object 3 times with 90-degree rotation
-        for i, pos in enumerate(positions):
-            # rotated_obj = obj.rotate(i * 90, expand=True)  # Rotate 0, 90, 180 degrees
-            # rotated_obj = obj.rotate(90, expand=True)  # Rotate 0, 90, 180 degrees
-            rotated_obj = obj.rotate(0, expand=True)  # Rotate 0, 90, 180 degrees
-            canvas.paste(rotated_obj, pos, rotated_obj)  # Paste with transparency
-            
-        saveCanvas(canvas, gv_Folder_Button_Cuff, f'{gv_filename_ButtonCuff}_{img_file}')     
-    
-    return canvas
-
-        
-        
-def button_collar(ipFileId=''):
-    # image_files = [f for f in os.listdir(gv_Folder_Button_Origin) if f.endswith(".png")]
-    
-    image_files = [
-        f for f in os.listdir(gv_Folder_Button_Origin) 
-        if f.endswith(".png") and (f.startswith(ipFileId) if ipFileId else True)
-    ]
-    
-    image_files.sort()  # Optional: Sort files if order matters
-    positions = [(gv_Position_X1_Collar+gv_WCorr_Btnhl_BtnCollar, gv_Position_Y_Collar+gv_HCorr_Btnhl_BtnCollar), 
-                 (gv_Position_X2_Collar+gv_WCorr_Btnhl_BtnCollar, gv_Position_Y_Collar+gv_HCorr_Btnhl_BtnCollar)]
-    
-
-        # Process each image
-    for img_file in image_files:
-        img_path = os.path.join(gv_Folder_Button_Origin, img_file)
-        
-        obj = Image.open(img_path).convert("RGBA")
-        # Calculate new size based on percentage
-        new_width = int(obj.width * (gv_fctResize_Button_Collar / 100))
-        new_height = int(obj.height * (gv_fctResize_Button_Collar / 100))
-        obj = obj.resize((new_width, new_height))
-        
-
-        # Create blank canvas
-        canvas = Image.new("RGBA", gv_ImageSize, (255, 255, 255, 0))
-
-        for i, pos in enumerate(positions):
-            rotated_obj = obj.rotate(0, expand=True)  # Rotate 0, 90, 180 degrees
-            canvas.paste(rotated_obj, pos, rotated_obj)  # Paste with transparency
-
-        saveCanvas(canvas, gv_Folder_Button_Collar1, f'{gv_filename_ButtonCollar}_{img_file}')    
-    
-    return canvas
-        
-
-
-def button_collar_center(ipFileId=''):
-    # image_files = [f for f in os.listdir(gv_Folder_Button_Origin) if f.endswith(".png")]
-    
-    image_files = [
-        f for f in os.listdir(gv_Folder_Button_Origin_SingleCenter) 
-        if f.endswith(".png") and (f.startswith(ipFileId) if ipFileId else True)
-    ]
-    
-    image_files.sort()  # Optional: Sort files if order matters
-    positions = [(gv_position_X_CollarCenter, gv_position_Y_CollarCenter)]
-    
-
-        # Process each image
-    for img_file in image_files:
-        img_path = os.path.join(gv_Folder_Button_Origin_SingleCenter, img_file)
-        
-        obj = Image.open(img_path).convert("RGBA")
-        # Calculate new size based on percentage
-        new_width = int(obj.width * (gv_fctResize_CollarCenter / 100))
-        new_height = int(obj.height * (gv_fctResize_CollarCenter / 100))
-        obj = obj.resize((new_width, new_height))
-        
-
-        # Create blank canvas
-        canvas = Image.new("RGBA", gv_ImageSize, (255, 255, 255, 0))
-
-        # Paste object 3 times with 90-degree rotation
-        for i, pos in enumerate(positions):
-            # rotated_obj = obj.rotate(i * 90, expand=True)  # Rotate 0, 90, 180 degrees
-            # rotated_obj = obj.rotate(90, expand=True)  # Rotate 0, 90, 180 degrees
-            rotated_obj = obj.rotate(0, expand=True)  # Rotate 0, 90, 180 degrees
-            canvas.paste(rotated_obj, pos, rotated_obj)  # Paste with transparency
-            
-        saveCanvas(canvas, gv_Folder_Button_CollarCenter, f'{gv_filename_ButtonCollarCenter}_{img_file}')     
-    
-    return canvas
-
-
-
-
         
 def thread_Button_cropped():
     image_files = [f for f in os.listdir(gv_Folder_ThreadButton_Big) if f.endswith(".png")]
@@ -438,197 +70,6 @@ def thread_Button_cropped():
         canvas.paste(img_resizedL, gv_position_ThreadButtonR, img_resizedR)  # Paste with transparency
         saveCanvas(canvas, gv_Folder_ThreadButton_Pair, f'{img_file.rstrip(".png")}_Pair.png')
         
-        
-def thread_button_placket(ipFileId=''):
-    # image_files = [f for f in os.listdir(gv_Folder_ThreadButton_Pair) if f.endswith(".png")]
-    
-    image_files = [
-        f for f in os.listdir(gv_Folder_ThreadButton_Pair) 
-        if f.endswith(".png") and (f.startswith(ipFileId) if ipFileId else True)
-    ]
-    
-    image_files.sort()  # Optional: Sort files if order matters
-    positions = [(gv_Position_X_Placket + gv_WCorr_Btnhl_Btn+gv_WCorr_ThreadButton, gv_Position_Y1_Placket+gv_HCorr_Btnhl_Btn+gv_HCorr_ThreadButton),
-                 (gv_Position_X_Placket + gv_WCorr_Btnhl_Btn+gv_WCorr_ThreadButton, gv_Position_Y2_Placket+gv_HCorr_Btnhl_Btn+gv_HCorr_ThreadButton), 
-                 (gv_Position_X_Placket + gv_WCorr_Btnhl_Btn+gv_WCorr_ThreadButton, gv_Position_Y3_Placket+gv_HCorr_Btnhl_Btn+gv_HCorr_ThreadButton)]
-    
-
-        # Process each image
-    for img_file in image_files:
-        img_path = os.path.join(gv_Folder_ThreadButton_Pair, img_file)
-        
-        obj = Image.open(img_path).convert("RGBA")
-        # Calculate new size based on percentage
-        new_width = int(obj.width * (gv_fctResize_ThreadButton_Main / 100))
-        new_height = int(obj.height * (gv_fctResize_ThreadButton_Main / 100))
-        obj = obj.resize((new_width, new_height))
-        
-
-        # Create blank canvas
-        canvas = Image.new("RGBA", gv_ImageSize, (255, 255, 255, 0))
-
-        # Paste object 3 times with 90-degree rotation
-        for i, pos in enumerate(positions):
-            
-            # rotated_obj = obj.rotate(i * 90, expand=True)  # Rotate 0, 90, 180 degrees
-            # rotated_obj = obj.rotate(90, expand=True)  # Rotate 0, 90, 180 degrees
-            rotated_obj = obj.rotate(0, expand=True)  # Rotate 0, 90, 180 degrees
-            canvas.paste(rotated_obj, pos, rotated_obj)  # Paste with transparency
-            
-        saveCanvas(canvas, gv_Folder_ThreadButton_Placket, f'{gv_filename_ThreadButtonPlacket}_{img_file}')
-    
-    return canvas
-
-
-def thread_button_pocket(ipFileId=''):
-    # image_files = [f for f in os.listdir(gv_Folder_ThreadButton_Pair) if f.endswith(".png")]
-    
-    image_files = [
-        f for f in os.listdir(gv_Folder_ThreadButton_Pair) 
-        if f.endswith(".png") and (f.startswith(ipFileId) if ipFileId else True)
-    ]
-    
-    image_files.sort()  # Optional: Sort files if order matters
-    positions = [(gv_Position_X_Pocket+ gv_WCorr_Btnhl_Btn+gv_WCorr_ThreadButton, gv_Position_Y_Pocket+gv_HCorr_Btnhl_Btn+gv_HCorr_ThreadButton)]
-    
-
-        # Process each image
-    for img_file in image_files:
-        img_path = os.path.join(gv_Folder_ThreadButton_Pair, img_file)
-        
-        obj = Image.open(img_path).convert("RGBA")
-        # Calculate new size based on percentage
-        new_width = int(obj.width * (gv_fctResize_ThreadButton_Main / 100))
-        new_height = int(obj.height * (gv_fctResize_ThreadButton_Main / 100))
-        obj = obj.resize((new_width, new_height))
-        
-
-        # Create blank canvas
-        canvas = Image.new("RGBA", gv_ImageSize, (255, 255, 255, 0))
-
-        # Paste object 3 times with 90-degree rotation
-        for i, pos in enumerate(positions):
-            # rotated_obj = obj.rotate(i * 90, expand=True)  # Rotate 0, 90, 180 degrees
-            # rotated_obj = obj.rotate(90, expand=True)  # Rotate 0, 90, 180 degrees
-            rotated_obj = obj.rotate(0, expand=True)  # Rotate 0, 90, 180 degrees
-            canvas.paste(rotated_obj, pos, rotated_obj)  # Paste with transparency
-            
-        saveCanvas(canvas, gv_Folder_ThreadButton_Pocket, f'{gv_filename_ThreadButtonPocket}_{img_file}')           
-    
-    return canvas
-        
-        
-def thread_button_cuff(ipFileId=''):
-    # image_files = [f for f in os.listdir(gv_Folder_ThreadButton_Pair) if f.endswith(".png")]
-    image_files = [
-        f for f in os.listdir(gv_Folder_ThreadButton_Pair) 
-        if f.endswith(".png") and (f.startswith(ipFileId) if ipFileId else True)
-    ]
-    
-    image_files.sort()  # Optional: Sort files if order matters
-    positions = [(gv_Position_X_Cuff+ gv_WCorr_Btnhl_Btn+gv_WCorr_ThreadButton, gv_Position_Y_Cuff+gv_HCorr_Btnhl_Btn+gv_HCorr_ThreadButton)]
-    
-
-        # Process each image
-    for img_file in image_files:
-        img_path = os.path.join(gv_Folder_ThreadButton_Pair, img_file)
-        
-        obj = Image.open(img_path).convert("RGBA")
-        # Calculate new size based on percentage
-        new_width = int(obj.width * (gv_fctResize_ThreadButton_Main / 100))
-        new_height = int(obj.height * (gv_fctResize_ThreadButton_Main / 100))
-        obj = obj.resize((new_width, new_height))
-        
-
-        # Create blank canvas
-        canvas = Image.new("RGBA", gv_ImageSize, (255, 255, 255, 0))
-
-        # Paste object 3 times with 90-degree rotation
-        for i, pos in enumerate(positions):
-            # rotated_obj = obj.rotate(i * 90, expand=True)  # Rotate 0, 90, 180 degrees
-            # rotated_obj = obj.rotate(90, expand=True)  # Rotate 0, 90, 180 degrees
-            rotated_obj = obj.rotate(0, expand=True)  # Rotate 0, 90, 180 degrees
-            canvas.paste(rotated_obj, pos, rotated_obj)  # Paste with transparency
-            
-        saveCanvas(canvas, gv_Folder_ThreadButton_Cuff, f'{gv_filename_ThreadButtonCuff}_{img_file}')     
-    
-    return canvas
-        
-        
-def thread_button_collar(ipFileId=''):
-    # image_files = [f for f in os.listdir(gv_Folder_ThreadButton_Pair) if f.endswith(".png")]
-    
-    image_files = [
-        f for f in os.listdir(gv_Folder_ThreadButton_Pair) 
-        if f.endswith(".png") and (f.startswith(ipFileId) if ipFileId else True)
-    ]
-    
-    image_files.sort()  # Optional: Sort files if order matters
-    positions = [(gv_Position_X1_Collar+gv_WCorr_Btnhl_BtnCollar+gv_WCorr_ThreadButton_Collar, gv_Position_Y_Collar+gv_HCorr_ThreadButton_Collar), 
-                 (gv_Position_X2_Collar+gv_WCorr_Btnhl_BtnCollar+gv_WCorr_ThreadButton_Collar, gv_Position_Y_Collar+gv_HCorr_ThreadButton_Collar)]
-    
-
-        # Process each image
-    for img_file in image_files:
-        img_path = os.path.join(gv_Folder_ThreadButton_Pair, img_file)
-        
-        obj = Image.open(img_path).convert("RGBA")
-        # Calculate new size based on percentage
-        new_width = int(obj.width * (gv_fctResize_ThreadButton_Collar / 100))
-        new_height = int(obj.height * (gv_fctResize_ThreadButton_Collar / 100))
-        obj = obj.resize((new_width, new_height))
-        
-
-        # Create blank canvas
-        canvas = Image.new("RGBA", gv_ImageSize, (255, 255, 255, 0))
-
-        for i, pos in enumerate(positions):
-            rotated_obj = obj.rotate(0, expand=True)  # Rotate 0, 90, 180 degrees
-            canvas.paste(rotated_obj, pos, rotated_obj)  # Paste with transparency
-
-        saveCanvas(canvas, gv_Folder_ThreadButton_Collar, f'{gv_filename_ThreadButtonCollar}_{img_file}')    
-    
-    return canvas
-
-
-
-def thread_button_collarCenter(ipFileId=''):
-    # image_files = [f for f in os.listdir(gv_Folder_ThreadButton_Pair) if f.endswith(".png")]
-    
-    image_files = [
-        f for f in os.listdir(gv_Folder_ThreadeButton_Origin_SingleCenter) 
-        if f.endswith(".png") and (f.startswith(ipFileId) if ipFileId else True)
-    ]
-    
-    image_files.sort()  # Optional: Sort files if order matters
-    positions = [(gv_position_X_CollarCenter + gv_WCorr_ThreadButtonCollarCenter, gv_position_Y_CollarCenter + gv_HCorr_ThreadButtonCollarCenter),
-                 (gv_position_X_CollarCenter + gv_WCorr_ThreadButtonCollarCenter , gv_position_Y_CollarCenter + gv_HCorr_ThreadButtonCollarCenter -2)
-                 ]
-    
-        # Process each image
-    for img_file in image_files:
-        img_path = os.path.join(gv_Folder_ThreadeButton_Origin_SingleCenter, img_file)
-        
-        obj = Image.open(img_path).convert("RGBA")
-        # Calculate new size based on percentage
-        new_width = int(obj.width * (gv_fctResize_ThreadButton_CollarCenter / 100))
-        new_height = int(obj.height * (gv_fctResize_ThreadButton_CollarCenter / 100))
-        obj = obj.resize((new_width, new_height))
-        
-
-        # Create blank canvas
-        canvas = Image.new("RGBA", gv_ImageSize, (255, 255, 255, 0))
-
-        for i, pos in enumerate(positions):
-            
-            
-            rotated_obj = obj.rotate(0, expand=True)  # Rotate 0, 90, 180 degrees
-            canvas.paste(rotated_obj, pos, rotated_obj)  # Paste with transparency
-
-        saveCanvas(canvas, gv_Folder_ThreadeButton_CollarCenter, f'{gv_filename_ThreadeButtonCollarCenter}_{img_file}')    
-    
-    return canvas
-
         
 def button_cc_cropped():
     image_files = [f for f in os.listdir(gv_Folder_Button_Origin) if f.endswith(".png")]
@@ -694,71 +135,36 @@ def getFile(ipFilePath):
             return None
     return None
     
-
-
-    
-def combineCanvas(ipBaseImage,
-    ipThrBtnHl_Placket, 
-    ipThrBtnHl_Pocket, 
-    ipThrBtnHl_Cuff, 
-    ipThrBtnHl_Collar, 
-    ipButton, 
-    ipThrButton_Placket, 
-    ipThrButton_Pocket, 
-    ipThrButton_Cuff, 
-    ipThrButton_Collar):
-    
-    final_canvas = Image.new("RGBA", gv_ImageSize, (255, 255, 255, 0))
-    
-    
-    final_canvas = Image.open(ipBaseImage).convert("RGBA")
-    
-    final_canvas = Image.alpha_composite(final_canvas, thread_Btnhole_placket(ipThrBtnHl_Placket))
-    
-    final_canvas = Image.alpha_composite(final_canvas, thread_Btnhole_placket(ipThrBtnHl_Placket))
-    final_canvas = Image.alpha_composite(final_canvas, thread_Btnhole_pocket(ipThrBtnHl_Pocket))
-    final_canvas = Image.alpha_composite(final_canvas, thread_Btnhole_cuff(ipThrBtnHl_Cuff))
-    # final_canvas = Image.alpha_composite(final_canvas, thread_Btnhole_collar(ipThrBtnHl_Collar))
-    
-    final_canvas = Image.alpha_composite(final_canvas, button_placket(ipButton))
-    final_canvas = Image.alpha_composite(final_canvas, button_pocket(ipButton))
-    final_canvas = Image.alpha_composite(final_canvas, button_cuff(ipButton))
-    # final_canvas = Image.alpha_composite(final_canvas, button_collar(ipButton))
-    
-    final_canvas = Image.alpha_composite(final_canvas, thread_button_placket(ipThrButton_Placket))
-    final_canvas = Image.alpha_composite(final_canvas, thread_button_pocket(ipThrButton_Pocket))
-    final_canvas = Image.alpha_composite(final_canvas, thread_button_cuff(ipThrButton_Cuff))
-    # final_canvas = Image.alpha_composite(final_canvas, thread_button_collar(ipThrButton_Collar))
-    
-    final_canvas = Image.alpha_composite(final_canvas, murano_label())
-
-    final_canvas.show()
-    
-    lv_filename = f"output/tmp/shirtwithtrims_{randint(1, 999999999)}.png"
-    final_canvas.save(lv_filename)
-    print(lv_filename)
-    
-    
-        
-        
-        
 def addFile(ipCanvas, ipFileLocation):
     
     lv_filelocation = getFile(ipFileLocation)
+    
+    
     if lv_filelocation != None:
         ipCanvas = Image.alpha_composite(ipCanvas, lv_filelocation)
     
     return ipCanvas
         
-        
-        
-        
-        
-        
-        
-        
-        
-        
+def trim_filenames_in_folder(folder_path, recursive=False):
+    """Rename files by keeping only text after the first underscore (_), and removing the underscore itself."""
+    for root, _, files in os.walk(folder_path):
+        for filename in files:
+            if "_" in filename:
+                old_path = os.path.join(root, filename)
+
+                # Find part after first underscore
+                trimmed_name = filename.split("_", 1)[1]  # Keep after first underscore
+                new_name = trimmed_name  # This already drops the underscore
+
+                new_path = os.path.join(root, new_name)
+
+                os.rename(old_path, new_path)
+                print(f"Renamed: {filename} → {new_name}")
+
+        if not recursive:
+            break  # Process only top folder if recursive=False
+
+       
 def combineshirt(*ipshirtsfeatures):
     
     final_canvas = Image.new("RGBA", gv_ImageSize, (255, 255, 255, 0))
@@ -767,42 +173,60 @@ def combineshirt(*ipshirtsfeatures):
         if lp_indx >= gvi_bodyandhem and lp_indx <= gvi_collar and ipshirtsfeatures[gvi_shellfabric]:
             final_canvas = addFile(final_canvas, f'{gv_previewimages}/{gv_shellfabrics}/{ipshirtsfeatures[gvi_shellfabric]}/{gv_fldrFbrIndx[lp_indx]}/{ipshirtsfeatures[lp_indx]}')
             
-        if lp_indx > gvi_collar and ipshirtsfeatures[gvi_contrstfabric]:
+        if lp_indx > gvi_collar and ipshirtsfeatures[gvi_contrstfabric] and lp_indx <= gvi_contrastCuff:
             
             if ipshirtsfeatures[lp_indx]:
                 
                 lv_type = ipshirtsfeatures[gvi_collar] if gv_fldrFbrIndx[lp_indx] == gv_fldr_collar else ipshirtsfeatures[gvi_cuff]
                 final_canvas = addFile(final_canvas, f'{gv_previewimages}/{gv_contrastfabrics}/{ipshirtsfeatures[1]}/{gv_fldrFbrIndx[lp_indx]}/{lv_type}')
                 
+    lvidx_threadbuttonhole,lvidx_button, lvidx_thread_button = 0, 1, 2
     
-    lv_threadColor = 'ButtonHole_Orange.png'
-    lv_buttonName = 'JUCE SD SATIN TT1438.png'
+    lv_Button                       = ipshirtsfeatures[gvi_button]
+    lv_ThreadButtonHole             = ipshirtsfeatures[gvi_color_threadbtnhole]
+    lv_ThreadButton                 = ipshirtsfeatures[gvi_color_threadbtn] if ipshirtsfeatures[gvi_color_threadbtn] else ipshirtsfeatures[gvi_color_threadbtnhole]
+    lv_ThreadButtonHoleCollarCenter = ipshirtsfeatures[gvi_color_threadbtnhole_cc] if ipshirtsfeatures[gvi_color_threadbtnhole_cc] else ipshirtsfeatures[gvi_color_threadbtnhole]
+    lv_ThreadButtonCollarCenter     = ipshirtsfeatures[gvi_color_threadbtn_cc] if ipshirtsfeatures[gvi_color_threadbtn_cc] else ipshirtsfeatures[gvi_color_threadbtnhole]
+        
     
-    
-    
-    if gvd_featuretype.get(ipshirtsfeatures[gvi_placket], ['','',''])[gvi_thread_btnhole]:        
-        final_canvas = addFile(final_canvas, f'{gvd_featuretype[ipshirtsfeatures[gvi_placket]][gvi_thread_btnhole]}/{lv_threadColor}')    
-    if gvd_featuretype.get(ipshirtsfeatures[gvi_pocket_Main], ['','',''])[gvi_thread_btnhole]:        
-        final_canvas = addFile(final_canvas, f'{gvd_featuretype[ipshirtsfeatures[gvi_pocket_Main]][gvi_thread_btnhole]}/{lv_threadColor}')    
-    if gvd_featuretype.get(ipshirtsfeatures[gvi_cuff], ['','',''])[gvi_thread_btnhole]:        
-        final_canvas = addFile(final_canvas, f'{gvd_featuretype[ipshirtsfeatures[gvi_cuff]][gvi_thread_btnhole]}/{lv_threadColor}')    
-    if gvd_featuretype.get(ipshirtsfeatures[gvi_collar], ['','',''])[gvi_thread_btnhole]:        
-        final_canvas = addFile(final_canvas, f'{gvd_featuretype[ipshirtsfeatures[gvi_collar]][gvi_thread_btnhole]}/{lv_threadColor}')    
-    final_canvas = addFile(final_canvas, f'{gv_Folder_ThreadButtonHole_Collar2}/{lv_threadColor}')    
-    
-    
-    
-    if gvd_featuretype.get(ipshirtsfeatures[gvi_placket], ['','',''])[gvi_button]:        
-        final_canvas = addFile(final_canvas, f'{gvd_featuretype[ipshirtsfeatures[gvi_placket]][gvi_button]}/{lv_buttonName}')    
-    if gvd_featuretype.get(ipshirtsfeatures[gvi_pocket_Main], ['','',''])[gvi_button]:        
-        final_canvas = addFile(final_canvas, f'{gvd_featuretype[ipshirtsfeatures[gvi_pocket_Main]][gvi_button]}/{lv_buttonName}')    
-    if gvd_featuretype.get(ipshirtsfeatures[gvi_cuff], ['','',''])[gvi_button]:        
-        final_canvas = addFile(final_canvas, f'{gvd_featuretype[ipshirtsfeatures[gvi_cuff]][gvi_button]}/{lv_buttonName}')    
-    if gvd_featuretype.get(ipshirtsfeatures[gvi_collar], ['','',''])[gvi_button]:        
-        final_canvas = addFile(final_canvas, f'{gvd_featuretype[ipshirtsfeatures[gvi_collar]][gvi_button]}/{lv_buttonName}')    
-    final_canvas = addFile(final_canvas, f'{gv_Folder_Button_Collar2}/Button Collar_White.png')    
+    if gvd_featuretype.get(ipshirtsfeatures[gvi_placket], ['','',''])[lvidx_threadbuttonhole]:        
+        final_canvas = addFile(final_canvas, f'{gvd_featuretype[ipshirtsfeatures[gvi_placket]][lvidx_threadbuttonhole]}/{lv_ThreadButtonHole}')    
+    if gvd_featuretype.get(ipshirtsfeatures[gvi_pocket_Main], ['','',''])[lvidx_threadbuttonhole]:        
+        final_canvas = addFile(final_canvas, f'{gvd_featuretype[ipshirtsfeatures[gvi_pocket_Main]][lvidx_threadbuttonhole]}/{lv_ThreadButtonHole}')    
+    if gvd_featuretype.get(ipshirtsfeatures[gvi_cuff], ['','',''])[lvidx_threadbuttonhole]:        
+        final_canvas = addFile(final_canvas, f'{gvd_featuretype[ipshirtsfeatures[gvi_cuff]][lvidx_threadbuttonhole]}/{lv_ThreadButtonHole}')    
+    if gvd_featuretype.get(ipshirtsfeatures[gvi_collar], ['','',''])[lvidx_threadbuttonhole]:        
+        final_canvas = addFile(final_canvas, f'{gvd_featuretype[ipshirtsfeatures[gvi_collar]][lvidx_threadbuttonhole]}/{lv_ThreadButtonHole}')    
+    final_canvas = addFile(final_canvas, f'{gv_Folder_ThreadButtonHole_Collar2}/{lv_ThreadButtonHoleCollarCenter}')    
     
     
+    
+    if gvd_featuretype.get(ipshirtsfeatures[gvi_placket], ['','',''])[lvidx_button]:        
+        final_canvas = addFile(final_canvas, f'{gvd_featuretype[ipshirtsfeatures[gvi_placket]][lvidx_button]}/{lv_Button}')    
+    if gvd_featuretype.get(ipshirtsfeatures[gvi_pocket_Main], ['','',''])[lvidx_button]:        
+        final_canvas = addFile(final_canvas, f'{gvd_featuretype[ipshirtsfeatures[gvi_pocket_Main]][lvidx_button]}/{lv_Button}')    
+    if gvd_featuretype.get(ipshirtsfeatures[gvi_cuff], ['','',''])[lvidx_button]:        
+        final_canvas = addFile(final_canvas, f'{gvd_featuretype[ipshirtsfeatures[gvi_cuff]][lvidx_button]}/{lv_Button}')    
+    if gvd_featuretype.get(ipshirtsfeatures[gvi_collar], ['','',''])[lvidx_button]:        
+        final_canvas = addFile(final_canvas, f'{gvd_featuretype[ipshirtsfeatures[gvi_collar]][lvidx_button]}/{lv_Button}')    
+    
+    lv_ButtonCollar = 'Button Collar_White.png' #<<------- temporary hardcode collar button 
+    final_canvas = addFile(final_canvas, f'{gv_Folder_Button_Collar2}/{lv_ButtonCollar}')    
+    
+    
+    if gvd_featuretype.get(ipshirtsfeatures[gvi_placket], ['','',''])[lvidx_thread_button]:        
+        final_canvas = addFile(final_canvas, f'{gvd_featuretype[ipshirtsfeatures[gvi_placket]][lvidx_thread_button]}/{lv_ThreadButton}')    
+    if gvd_featuretype.get(ipshirtsfeatures[gvi_pocket_Main], ['','',''])[lvidx_thread_button]:        
+        final_canvas = addFile(final_canvas, f'{gvd_featuretype[ipshirtsfeatures[gvi_pocket_Main]][lvidx_thread_button]}/{lv_ThreadButton}')    
+    if gvd_featuretype.get(ipshirtsfeatures[gvi_cuff], ['','',''])[lvidx_thread_button]:        
+        final_canvas = addFile(final_canvas, f'{gvd_featuretype[ipshirtsfeatures[gvi_cuff]][lvidx_thread_button]}/{lv_ThreadButton}')    
+    if gvd_featuretype.get(ipshirtsfeatures[gvi_collar], ['','',''])[lvidx_thread_button]:        
+        final_canvas = addFile(final_canvas, f'{gvd_featuretype[ipshirtsfeatures[gvi_collar]][lvidx_thread_button]}/{lv_ThreadButton}')    
+    
+    final_canvas = addFile(final_canvas, f'{gv_Folder_ThreadButton_Collar2}/{lv_ThreadButtonCollarCenter}')    
+    
+    
+    final_canvas = Image.alpha_composite(final_canvas, murano_label())
         
     final_canvas.show()
     lv_filename = f"output/tmp/shirtwithfeatures_{randint(1, 999999999)}.png"

@@ -111,6 +111,9 @@ def ButtonholeCreation(ipFileName, holeRelativeCenters=None, holeSize=(78, 69)):
 
     # img_with_holes.show()
 
+#------------------------------------------------------------------------------------
+#----------- CHECK BUTTON ONE BY ONE FOR THE UNIQUE SIZE and POSITION ---------------
+#------------------------------------------------------------------------------------
 
 
 
@@ -118,7 +121,9 @@ def ButtonholeCreation(ipFileName, holeRelativeCenters=None, holeSize=(78, 69)):
 
 
 
-
+#----------- DO NOT DELETE CODE! ---------------
+#----------- DO NOT DELETE CODE! ---------------
+#----------- DO NOT DELETE CODE! ---------------
 
 # cropButton('AGASSIZ TT2742.png',(2882, 1941),(250, 239) , -11 )    
 # cropButton('AGASSIZ XT100.png', (3047, 2045), (328, 315) , -2)
@@ -138,7 +143,6 @@ def ButtonholeCreation(ipFileName, holeRelativeCenters=None, holeSize=(78, 69)):
 
 # button_resize(500)    
 
-
 # ButtonholeCreation('AGASSIZ TT2742.png')     #   DEFAULT      , [(187, 197), (312, 197), (187, 327), (312, 327)], (78, 69))
 # ButtonholeCreation('AGASSIZ XT100.png')
 # ButtonholeCreation('AGASSIZ XT105.png', [(189, 195), (314, 195), (189, 320), (314, 320)],   (78, 69))
@@ -153,6 +157,9 @@ def ButtonholeCreation(ipFileName, holeRelativeCenters=None, holeSize=(78, 69)):
 # ButtonholeCreation('QUITO TT1659.png', [(195, 193), (316, 193), (195, 314), (316, 314)], (78, 72))
 # ButtonholeCreation('QUITO TT2010.png', [(190, 197), (312, 197), (190, 309), (312, 309)], (78, 69))
 # ButtonholeCreation('SORAVA TT1438.png', [(197, 205), (305, 205), (197, 312), (305, 312)], (75, 69))
-ButtonholeCreation('SORAVA TT1448.png' , [(195, 215), (312, 215), (195, 320), (312, 320)], (78, 63))
+# ButtonholeCreation('SORAVA TT1448.png' , [(195, 215), (312, 215), (195, 320), (312, 320)], (78, 63))
 
    
+#----------- DO NOT DELETE CODE! ---------------
+#----------- DO NOT DELETE CODE! ---------------
+#----------- DO NOT DELETE CODE! ---------------

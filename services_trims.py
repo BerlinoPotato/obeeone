@@ -15,7 +15,7 @@ def saveCanvas(ipObjCanvas, ipOutputFolder, ipFilename):
     lv_outputFile = os.path.join(ipOutputFolder, lv_filename)
     ipObjCanvas.save(lv_outputFile)
 
-def create_trims(ipSourceFolder, ipTargetFolder, ipFileName, ipPositions, ipFctResize, ipRotation=[0,0,0]):
+def create_trims(ipSourceFolder, ipTargetFolder, ipPositions, ipFctResize, ipRotation=[0,0,0]):
         
     image_files = [f for f in os.listdir(ipSourceFolder)]
     image_files.sort()
