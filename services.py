@@ -34,6 +34,48 @@ def thread_Btnhole_cropped():
         saveCanvas(img_resized, gv_Folder_ThreadButtonHole_Origin_Single, img_file)
 
 
+def thread_Btnhole_cropped():
+    image_files = [f for f in os.listdir(gv_Folder_ThreadButtonHole_Origin) if f.endswith(".png")]
+    image_files.sort()
+    for img_file in image_files:
+        img_path = os.path.join(gv_Folder_ThreadButtonHole_Origin, img_file)
+        img = Image.open(img_path).convert("RGBA")  # Load image with transparency
+
+        cropped = img.crop(gv_cropbox_ThreadButtonHole)
+        img_resized = cropped.resize(gv_finalsize_ThreadButtonHole_cc)
+        
+        saveCanvas(img_resized, gv_Folder_ThreadButtonHole_Origin_CollarCenter, img_file)
+        
+        
+        
+        
+
+def create_trims(ipSourceFolder, ipTargetFolder, ipFileName, ipPositions, ipFctResize, ipRotation=[0,0,0]):
+        
+    image_files = [f for f in os.listdir(ipSourceFolder)]
+    image_files.sort()
+    
+    positions= ipPositions
+    
+    for img_file in image_files:
+        img_path = os.path.join(ipSourceFolder, img_file)
+        
+        obj = Image.open(img_path).convert("RGBA")
+        new_width = int(obj.width * (ipFctResize / 100))
+        new_height = int(obj.height * (ipFctResize / 100))
+        obj = obj.resize((new_width, new_height))
+
+        canvas = Image.new("RGBA", gv_ImageSize, (255, 255, 255, 0))
+
+        for i, pos in enumerate(positions):
+            rotated_obj = obj.rotate(ipRotation[i], expand=True)  # Rotate 0, 90, 180 degrees
+            canvas.paste(rotated_obj, pos, rotated_obj)  # Paste with transparency
+
+        saveCanvas(canvas, ipTargetFolder, f'{ipFileName}_{img_file}')
+
+    
+
+
 def thread_Btnhole_placket(ipFileId=''):
     # image_files = [f for f in os.listdir(gv_Folder_ThreadButtonHole_Origin_Single) if f.endswith(".png")]
     
@@ -93,6 +135,9 @@ def thread_Btnhole_pocket(ipFileId=''):
         saveCanvas(canvas, gv_Folder_ThreadButtonHole_Pocket, f'{gv_filename_ThreadBtnHlPocket}_{img_file}')        
     
     return canvas
+
+
+
         
         
 def thread_Btnhole_cuff(ipFileId=''):
@@ -157,7 +202,7 @@ def thread_Btnhole_collar(ipFileId=''):
             
             canvas.paste(rotated_obj, pos, rotated_obj)  # Paste with transparency
 
-        saveCanvas(canvas, gv_Folder_ThreadButtonHole_Collar, f'{gv_filename_ThreadBtnHlCollar}_{img_file}')          
+        saveCanvas(canvas, gv_Folder_ThreadButtonHole_Collar1, f'{gv_filename_ThreadBtnHlCollar}_{img_file}')          
         
     return canvas
         
@@ -310,7 +355,7 @@ def button_collar(ipFileId=''):
             rotated_obj = obj.rotate(0, expand=True)  # Rotate 0, 90, 180 degrees
             canvas.paste(rotated_obj, pos, rotated_obj)  # Paste with transparency
 
-        saveCanvas(canvas, gv_Folder_Button_Collar, f'{gv_filename_ButtonCollar}_{img_file}')    
+        saveCanvas(canvas, gv_Folder_Button_Collar1, f'{gv_filename_ButtonCollar}_{img_file}')    
     
     return canvas
         
@@ -650,35 +695,7 @@ def getFile(ipFilePath):
     return None
     
 
-def combineshirt(*ipshirtsfeatures):
-    
-    final_canvas = Image.new("RGBA", gv_ImageSize, (255, 255, 255, 0))
 
-    for lp_indx, value in enumerate(ipshirtsfeatures):
-        if lp_indx >= gvi_bodyandhem and lp_indx <= gvi_collar and ipshirtsfeatures[gvi_shellfabric]:
-            lv_filelocation = getFile(f'{gv_previewimages}/{gv_shellfabrics}/{ipshirtsfeatures[gvi_shellfabric]}/{gv_fldrFbrIndx[lp_indx]}/{ipshirtsfeatures[lp_indx]}')
-            
-            if lv_filelocation != None:
-                final_canvas = Image.alpha_composite(final_canvas, lv_filelocation)
-
-        if lp_indx > gvi_collar and ipshirtsfeatures[gvi_contrstfabric]:
-            
-            if ipshirtsfeatures[lp_indx]:
-                
-                lv_type = ipshirtsfeatures[gvi_collar] if gv_fldrFbrIndx[lp_indx] == gv_fldr_collar else ipshirtsfeatures[gvi_cuff]
-                
-                lv_filelocation = getFile(f'{gv_previewimages}/{gv_contrastfabrics}/{ipshirtsfeatures[1]}/{gv_fldrFbrIndx[lp_indx]}/{lv_type}')
-                
-                if lv_filelocation != None:
-                    final_canvas = Image.alpha_composite(final_canvas, lv_filelocation)
-        
-        
-    # final_canvas.show()
-    lv_filename = f"output/tmp/shirtwithfeatures_{randint(1, 999999999)}.png"
-    final_canvas.save(lv_filename)
-    
-    return lv_filename
-    
     
 def combineCanvas(ipBaseImage,
     ipThrBtnHl_Placket, 
@@ -723,3 +740,73 @@ def combineCanvas(ipBaseImage,
     
     
         
+        
+        
+def addFile(ipCanvas, ipFileLocation):
+    
+    lv_filelocation = getFile(ipFileLocation)
+    if lv_filelocation != None:
+        ipCanvas = Image.alpha_composite(ipCanvas, lv_filelocation)
+    
+    return ipCanvas
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+def combineshirt(*ipshirtsfeatures):
+    
+    final_canvas = Image.new("RGBA", gv_ImageSize, (255, 255, 255, 0))
+
+    for lp_indx, value in enumerate(ipshirtsfeatures):
+        if lp_indx >= gvi_bodyandhem and lp_indx <= gvi_collar and ipshirtsfeatures[gvi_shellfabric]:
+            final_canvas = addFile(final_canvas, f'{gv_previewimages}/{gv_shellfabrics}/{ipshirtsfeatures[gvi_shellfabric]}/{gv_fldrFbrIndx[lp_indx]}/{ipshirtsfeatures[lp_indx]}')
+            
+        if lp_indx > gvi_collar and ipshirtsfeatures[gvi_contrstfabric]:
+            
+            if ipshirtsfeatures[lp_indx]:
+                
+                lv_type = ipshirtsfeatures[gvi_collar] if gv_fldrFbrIndx[lp_indx] == gv_fldr_collar else ipshirtsfeatures[gvi_cuff]
+                final_canvas = addFile(final_canvas, f'{gv_previewimages}/{gv_contrastfabrics}/{ipshirtsfeatures[1]}/{gv_fldrFbrIndx[lp_indx]}/{lv_type}')
+                
+    
+    lv_threadColor = 'ButtonHole_Orange.png'
+    lv_buttonName = 'JUCE SD SATIN TT1438.png'
+    
+    
+    
+    if gvd_featuretype.get(ipshirtsfeatures[gvi_placket], ['','',''])[gvi_thread_btnhole]:        
+        final_canvas = addFile(final_canvas, f'{gvd_featuretype[ipshirtsfeatures[gvi_placket]][gvi_thread_btnhole]}/{lv_threadColor}')    
+    if gvd_featuretype.get(ipshirtsfeatures[gvi_pocket_Main], ['','',''])[gvi_thread_btnhole]:        
+        final_canvas = addFile(final_canvas, f'{gvd_featuretype[ipshirtsfeatures[gvi_pocket_Main]][gvi_thread_btnhole]}/{lv_threadColor}')    
+    if gvd_featuretype.get(ipshirtsfeatures[gvi_cuff], ['','',''])[gvi_thread_btnhole]:        
+        final_canvas = addFile(final_canvas, f'{gvd_featuretype[ipshirtsfeatures[gvi_cuff]][gvi_thread_btnhole]}/{lv_threadColor}')    
+    if gvd_featuretype.get(ipshirtsfeatures[gvi_collar], ['','',''])[gvi_thread_btnhole]:        
+        final_canvas = addFile(final_canvas, f'{gvd_featuretype[ipshirtsfeatures[gvi_collar]][gvi_thread_btnhole]}/{lv_threadColor}')    
+    final_canvas = addFile(final_canvas, f'{gv_Folder_ThreadButtonHole_Collar2}/{lv_threadColor}')    
+    
+    
+    
+    if gvd_featuretype.get(ipshirtsfeatures[gvi_placket], ['','',''])[gvi_button]:        
+        final_canvas = addFile(final_canvas, f'{gvd_featuretype[ipshirtsfeatures[gvi_placket]][gvi_button]}/{lv_buttonName}')    
+    if gvd_featuretype.get(ipshirtsfeatures[gvi_pocket_Main], ['','',''])[gvi_button]:        
+        final_canvas = addFile(final_canvas, f'{gvd_featuretype[ipshirtsfeatures[gvi_pocket_Main]][gvi_button]}/{lv_buttonName}')    
+    if gvd_featuretype.get(ipshirtsfeatures[gvi_cuff], ['','',''])[gvi_button]:        
+        final_canvas = addFile(final_canvas, f'{gvd_featuretype[ipshirtsfeatures[gvi_cuff]][gvi_button]}/{lv_buttonName}')    
+    if gvd_featuretype.get(ipshirtsfeatures[gvi_collar], ['','',''])[gvi_button]:        
+        final_canvas = addFile(final_canvas, f'{gvd_featuretype[ipshirtsfeatures[gvi_collar]][gvi_button]}/{lv_buttonName}')    
+    final_canvas = addFile(final_canvas, f'{gv_Folder_Button_Collar2}/Button Collar_White.png')    
+    
+    
+        
+    final_canvas.show()
+    lv_filename = f"output/tmp/shirtwithfeatures_{randint(1, 999999999)}.png"
+    final_canvas.save(lv_filename)
+    
+    return lv_filename
+            
