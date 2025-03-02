@@ -5,17 +5,17 @@ from services  import *
 #-------------------------------------------------------------
 #----------------------- Fabrics -----------------------------
 
-lv_ShellfabricCode              = gv_fb_FK00016308_0002
-lv_ContrastfabricCode           = gv_cntrst_grey
+lv_ShellfabricCode              = gv_fb_FW01024009_0011
+lv_ContrastfabricCode           = gv_cntrst_blue
 
 #-------------------------------------------------------------
 #----------------------- Options -----------------------------
-lv_BackAndYoke                  = gv_body_bp_spltyk
+lv_BackAndYoke                  = gv_body_bp_stdyk
 lv_Placket                      = gv_plck_seton
-lv_PocketMain                   = gv_pckt_pleatedmiterdwithflap
-lv_PocketSecond                 = gv_pckt_pleatedmiterdwithflap
-lv_Cuff                         = gv_cff_singlebtn_round
-lv_Collar                       = gv_clr_buttondown
+lv_PocketMain                   = gv_pckt_western
+lv_PocketSecond                 = ''
+lv_Cuff                         = gv_cff_singlebtn_mitered
+lv_Collar                       = gv_clr_banded
 
 #-------------------------------------------------------------
 #----------------------- Contrast ----------------------------
@@ -25,11 +25,13 @@ lv_ContrastCuff                 = gv_cntrst_Cuff[1]
 #-------------------------------------------------------------
 #----------------------- Trims -------------------------------
 
-lv_Button                       = gv_button_AGASSIZTT2742
-lv_ThreadButtonHole             = gv_color_Green
-lv_ThreadButton                 = ''
-lv_ThreadButtonHoleCollarCenter = ''
-lv_ThreadButtonCollarCenter     = ''
+lv_Button                       = gv_button_JUCESDSATINTT1659
+lv_ThreadButtonHole             = gv_color_White
+lv_ThreadButton                 = gv_color_Gold
+lv_ThreadButtonHoleCollarCenter = gv_color_Blue
+lv_ThreadButtonCollarCenter     = gv_color_Red
+#-------------------------------------------------------------
+lv_showsample                   = True
 
 #-------------------------------------------------------------
 #-------------------------------------------------------------
@@ -52,5 +54,6 @@ combineshirt(*(
     lv_ThreadButtonHole,
     lv_ThreadButton,
     lv_ThreadButtonHoleCollarCenter,
-    lv_ThreadButtonCollarCenter))
+    lv_ThreadButtonCollarCenter,
+    lv_showsample))
 #-------------------------------------------------------------

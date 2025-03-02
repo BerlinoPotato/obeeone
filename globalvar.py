@@ -1,4 +1,106 @@
 #use web https                                 : //pixspy.com/ to identify pixelposition
+
+gv_folder_button                               = 'button'
+gv_folder_threadbuttoon                        = 'thread_btn'
+gv_folder_threadbuttonhole                     = 'thread_btnhole'
+gv_folder_buttonset                            = 'buttonset'
+
+gv_fldr_body                                   = 'body'
+gv_fldr_collar                                 = 'collar'
+gv_fldr_cuff                                   = 'cuff'
+gv_fldr_placket                                = 'placket'
+gv_fldr_pocket_main                            = 'pocket main'
+gv_fldr_pocket_sub                             = 'pocket second' #'pocket second'
+
+gv_fdr_trims                                   = 'trims'
+gv_fdr_button                                  = 'button'
+gv_fdr_thread_button                           = 'thread_button'
+gv_fdr_thread_buttonhole                       = 'thread_buttonhole'
+
+gv_fldr_pocket_main2                           = 'pocket main2'
+gv_fldr_pocket_sub2                            = 'pocket second2' #'pocket second'
+
+
+gv_previewimages                               = 'previewimages'
+gv_shellfabrics                                = 'shellfabrics'
+gv_contrastfabrics                             = 'contrastfabrics'
+gv_trims                                       = 'trims'
+
+gv_fb_FW01024009_0011                          = 'FW01024009-0011'
+gv_fb_FK00016308_0005                          = 'FK00016308-0005'
+gv_fb_FK00016308_0002                          = 'FK00016308-0002'
+
+gv_cntrst_red                                  = '01'
+gv_cntrst_grey                                 = '02'
+gv_cntrst_blue                                 = '03'
+
+gv_cntrst_Collar                               = (False,True)
+gv_cntrst_Cuff                                 = (False,True)
+
+
+
+gv_Folder_ThreadButtonHole_Origin              = 'source/thread_btnhl'
+gv_Folder_ThreadButtonHole_Origin_Single       = 'source/thread_btnhl_single'
+gv_Folder_ThreadButtonHole_Origin_CollarCenter = 'source/thread_btnhl_collarCenter'
+
+gv_filename_ThreadBtnHlPlacket                 = 'ThreadBtnHlPlacket'
+gv_filename_ThreadBtnHlPocket                  = 'ThreadBtnHlPocket'
+gv_filename_ThreadBtnHlPocket1                 = 'ThreadBtnHlPocket_btnt'
+gv_filename_ThreadBtnHlPocket2                 = 'ThreadBtnHlPocket_flap'
+gv_filename_ThreadBtnHlPocket3                 = 'ThreadBtnHlPocket_wstn'
+gv_filename_ThreadBtnHlCuff                    = 'ThreadBtnHlCuff'
+gv_filename_ThreadBtnHlCollar                  = 'ThreadBtnHlCollar'
+
+
+gv_Folder_Button_Origin                        = 'source/button_raw'
+gv_fdr_trims_button_placket                    = 'output/button_placket'
+gv_Folder_Button_Pocket                        = 'output/button_pocket'
+
+
+gv_filename_ButtonPlacket                      = 'ButtonPlacket'
+gv_filename_ButtonPocket                       = 'ButtonPocket'
+gv_filename_ButtonPocket_btnt                  = 'ButtonPocket_btnt'
+gv_filename_ButtonPocket_flap                  = 'ButtonPocket_flap'
+gv_filename_ButtonPocket_wstn                  = 'ButtonPocket_wstn'
+gv_filename_ButtonCuff                         = 'ButtonCuff'
+gv_filename_ButtonCollar                       = 'ButtonCollar'
+
+
+gv_Folder_Button_OriginCenter                  = 'source/button_cc'
+gv_Folder_Button_Origin_SingleCenter           = 'source/button_cc_single'
+gv_Folder_Button_CollarCente1r                 = 'output/button_collar_center'
+gv_filename_ButtonCollarCenter                 = 'ButtonCollarCenter'
+
+
+gv_Folder_ThreadeButton_OriginCenter           = 'source/thread_button_center'
+gv_Folder_ThreadeButton_Origin_SingleCenter    = 'source/thread_button_cc_single'
+gv_Folder_ThreadeButton_CollarCenter           = 'output/thread_button_collar_center'
+gv_filename_ThreadeButtonCollarCenter          = 'ThreadButtonCollarCenter'
+
+gv_fctResize_ThreadButton_CollarCenter         = 5
+gv_WCorr_ThreadButtonCollarCenter              = 10
+gv_HCorr_ThreadButtonCollarCenter              = 13
+
+
+gv_Folder_ThreadButton_Big                     = 'source/thread_button_big'
+gv_Folder_ThreadButton_Single                  = 'source/thread_button_single'
+gv_Folder_ThreadButton_Pair                    = 'source/thread_button_pair'
+
+
+
+gv_fdr_trims_thr_button_placket                = 'output/thread_button_placket'
+gv_Folder_ThreadButton_Pocket                  = 'output/thread_button_pocket'
+
+
+gv_filename_ThreadButtonPlacket                = 'ThreadButtonPlacket'
+gv_filename_ThreadButtonPocket                 = 'ThreadButtonPocket'
+gv_filename_ThreadButtonPocket1                = 'ThreadButtonPocket_btnt'
+gv_filename_ThreadButtonPocket2                = 'ThreadButtonPocket_flap'
+gv_filename_ThreadButtonPocket3                = 'ThreadButtonPocket_wstn'
+gv_filename_ThreadButtonCuff                   = 'ThreadButtonCuff'
+gv_filename_ThreadButtonCollar                 = 'ThreadButtonCollar'
+
+
 gv_ImageSize                                   = (1900,1900)
 gv_cropbox_ThreadButtonHole                    = (1241, 1002, 1264, 1111)
 gv_finalsize_ThreadButtonHole                  = (24,109)
@@ -64,16 +166,12 @@ gv_Position_X_Pocket3                          = 1387
 gv_Position_Y_Pocket3                          = 1495
 
 
-
 gv_Position_X_Cuff                             = 617
 gv_Position_Y_Cuff                             = 1445
 
 gv_Position_X_Cuff2                            = 617  #french
 gv_Position_Y_Cuff2                            = 1580 #french
 
-# gv_Position_X1_Collar                        = 762
-# gv_Position_X2_Collar                        = 1125
-# gv_Position_Y_Collar                         = 750
 gv_fctResize_ThreadButtonHole_Main             = 55
 gv_fctResize_ThreadButtonHole_Collar           = 35
 gv_fctResize_ThreadButtonHole_CollarCenter     = 20
@@ -95,93 +193,6 @@ gv_fctResize_Button_Main                       = 10
 gv_fctResize_Button_Collar                     = 6
 gv_fctResize_Button_CollarCenter               = 3.2
 
-gv_Folder_ThreadButtonHole_Origin              = 'source/thread_btnhl'
-gv_Folder_ThreadButtonHole_Origin_Single       = 'source/thread_btnhl_single'
-gv_Folder_ThreadButtonHole_Origin_CollarCenter = 'source/thread_btnhl_collarCenter'
-gv_Folder_ThreadButtonHole_Placket             = 'output/thread_btnhl_placket'
-gv_Folder_ThreadButtonHole_Pocket              = 'output/thread_btnhl_pocket'
-gv_Folder_ThreadButtonHole_Pocket1             = 'output/thread_btnhl_pocket1'
-gv_Folder_ThreadButtonHole_Pocket2             = 'output/thread_btnhl_pocket2'
-gv_Folder_ThreadButtonHole_Pocket3             = 'output/thread_btnhl_pocket3'
-gv_Folder_ThreadButtonHole_Cuff1               = 'output/thread_btnhl_cuff1'
-gv_Folder_ThreadButtonHole_Cuff2               = 'output/thread_btnhl_cuff2'
-
-gv_Folder_ThreadButtonHole_Collar1             = 'output/thread_btnhl_collar1'
-gv_Folder_ThreadButtonHole_Collar2             = 'output/thread_btnhl_collar2'
-
-gv_filename_ThreadBtnHlPlacket                 = 'ThreadBtnHlPlacket'
-gv_filename_ThreadBtnHlPocket                  = 'ThreadBtnHlPocket'
-gv_filename_ThreadBtnHlPocket1                 = 'ThreadBtnHlPocket_btnt'
-gv_filename_ThreadBtnHlPocket2                 = 'ThreadBtnHlPocket_flap'
-gv_filename_ThreadBtnHlPocket3                 = 'ThreadBtnHlPocket_wstn'
-gv_filename_ThreadBtnHlCuff                    = 'ThreadBtnHlCuff'
-gv_filename_ThreadBtnHlCollar                  = 'ThreadBtnHlCollar'
-
-
-gv_Folder_Button_Origin                        = 'source/button_raw'
-gv_Folder_Button_Placket                       = 'output/button_placket'
-gv_Folder_Button_Pocket                        = 'output/button_pocket'
-gv_Folder_Button_Pocket1                       = 'output/button_pocket1'
-gv_Folder_Button_Pocket2                       = 'output/button_pocket2'
-gv_Folder_Button_Pocket3                       = 'output/button_pocket3'
-gv_Folder_Button_Cuff1                         = 'output/button_cuff1'
-gv_Folder_Button_Cuff2                         = 'output/button_cuff2'
-gv_Folder_Button_Collar1                       = 'output/button_collar1'
-gv_Folder_Button_Collar2                       = 'output/button_collar2'
-
-gv_filename_ButtonPlacket                      = 'ButtonPlacket'
-gv_filename_ButtonPocket                       = 'ButtonPocket'
-gv_filename_ButtonPocket_btnt                  = 'ButtonPocket_btnt'
-gv_filename_ButtonPocket_flap                  = 'ButtonPocket_flap'
-gv_filename_ButtonPocket_wstn                  = 'ButtonPocket_wstn'
-gv_filename_ButtonCuff                         = 'ButtonCuff'
-gv_filename_ButtonCollar                       = 'ButtonCollar'
-
-
-gv_Folder_Button_OriginCenter                  = 'source/button_cc'
-gv_Folder_Button_Origin_SingleCenter           = 'source/button_cc_single'
-gv_Folder_Button_CollarCente1r                 = 'output/button_collar_center'
-gv_filename_ButtonCollarCenter                 = 'ButtonCollarCenter'
-
-
-gv_Folder_ThreadeButton_OriginCenter           = 'source/thread_button_center'
-gv_Folder_ThreadeButton_Origin_SingleCenter    = 'source/thread_button_cc_single'
-gv_Folder_ThreadeButton_CollarCenter           = 'output/thread_button_collar_center'
-gv_filename_ThreadeButtonCollarCenter          = 'ThreadButtonCollarCenter'
-
-gv_fctResize_ThreadButton_CollarCenter         = 5
-gv_WCorr_ThreadButtonCollarCenter              = 10
-gv_HCorr_ThreadButtonCollarCenter              = 13
-
-
-gv_Folder_ThreadButton_Big                     = 'source/thread_button_big'
-gv_Folder_ThreadButton_Single                  = 'source/thread_button_single'
-gv_Folder_ThreadButton_Pair                    = 'source/thread_button_pair'
-
-
-
-gv_Folder_ThreadButton_Placket                 = 'output/thread_button_placket'
-gv_Folder_ThreadButton_Pocket                  = 'output/thread_button_pocket'
-gv_Folder_ThreadButton_Pocket1                 = 'output/thread_button_pocket1'
-gv_Folder_ThreadButton_Pocket2                 = 'output/thread_button_pocket2'
-gv_Folder_ThreadButton_Pocket3                 = 'output/thread_button_pocket3'
-gv_Folder_ThreadButton_Cuff1                   = 'output/thread_button_cuff1'
-gv_Folder_ThreadButton_Cuff2                   = 'output/thread_button_cuff2'
-
-gv_Folder_ThreadButton_Collar1                 = 'output/thread_button_collar1'
-gv_Folder_ThreadButton_Collar2                 = 'output/thread_button_collar2'
-
-gv_filename_ThreadButtonPlacket                = 'ThreadButtonPlacket'
-gv_filename_ThreadButtonPocket                 = 'ThreadButtonPocket'
-gv_filename_ThreadButtonPocket1                = 'ThreadButtonPocket_btnt'
-gv_filename_ThreadButtonPocket2                = 'ThreadButtonPocket_flap'
-gv_filename_ThreadButtonPocket3                = 'ThreadButtonPocket_wstn'
-gv_filename_ThreadButtonCuff                   = 'ThreadButtonCuff'
-gv_filename_ThreadButtonCollar                 = 'ThreadButtonCollar'
-
-
-
-
 gv_WCorr_ThreadButton                          = 18
 gv_HCorr_ThreadButton                          = 17
 gv_fctResize_ThreadButton_Main                 = 13
@@ -194,66 +205,6 @@ gv_WCorr_ThreadButton_CollarCenter             = 8
 gv_HCorr_ThreadButton_CollarCenter             = 8
 
 gv_fctResize_ThreadButton_Collar               = 8
-
-
-
-gv_folder_button                               = 'button'
-gv_folder_threadbuttoon                        = 'thread_btn'
-gv_folder_threadbuttonhole                     = 'thread_btnhole'
-
-gv_folder_buttonset                            = 'buttonset'
-
-gv_01_Aqua                                     = '01'
-gv_02_Black                                    = '02'
-gv_03_Blue                                     = '03'
-gv_04_Brown                                    = '04'
-gv_05_Gold                                     = '05'
-gv_06_Green                                    = '06'
-gv_07_Grey                                     = '07'
-gv_08_Ivory                                    = '08'
-gv_09_Lavender                                 = '09'
-gv_10_Lawn                                     = '10'
-gv_11_LightBlue                                = '11'
-gv_12_LightGrey                                = '12'
-gv_13_Maroon                                   = '13'
-gv_14_Navy                                     = '14'
-gv_15_Olive                                    = '15'
-gv_16_Orange                                   = '16'
-gv_17_Pink                                     = '17'
-gv_18_Purple                                   = '18'
-gv_19_Red                                      = '19'
-gv_20_Spice                                    = '20'
-gv_21_Sunshine                                 = '21'
-gv_22_Taupe                                    = '22'
-gv_23_White                                    = '23'
-
-
-gv_previewimages                               = 'previewimages'
-gv_shellfabrics                                = 'shellfabrics'
-gv_contrastfabrics                             = 'contrastfabrics'
-gv_trims                                       = 'trims'
-
-gv_fb_FW01024009_0011                          = 'FW01024009-0011'
-gv_fb_FK00016308_0005                          = 'FK00016308-0005'
-gv_fb_FK00016308_0002                          = 'FK00016308-0002'
-
-gv_cntrst_red                                  = '01'
-gv_cntrst_grey                                 = '02'
-gv_cntrst_blue                                 = '03'
-
-gv_cntrst_Collar                               = (False,True)
-gv_cntrst_Cuff                                 = (False,True)
-
-gv_fldr_body                                   = 'body'
-gv_fldr_collar                                 = 'collar'
-gv_fldr_cuff                                   = 'cuff'
-gv_fldr_placket                                = 'placket'
-gv_fldr_pocket_main                            = 'pocket main'
-gv_fldr_pocket_sub                             = 'pocket second' #'pocket second'
-
-
-gv_fldr_pocket_main2                           = 'pocket main2'
-gv_fldr_pocket_sub2                            = 'pocket second2' #'pocket second'
 
 
 gv_fldrFbrIndx                                 = ['','',gv_fldr_body,gv_fldr_placket,gv_fldr_pocket_main2,
@@ -275,7 +226,7 @@ gvi_color_threadbtnhole                        = 11
 gvi_color_threadbtn                            = 12
 gvi_color_threadbtnhole_cc                     = 13
 gvi_color_threadbtn_cc                         = 14
-
+gvi_showsample                                 = 15
 
 
 gv_body_bd_spltyk                              = 'back dart - split yoke.png'
@@ -316,25 +267,64 @@ gv_cff_singlebtn_square                        = 'single button square.png'
 gv_cff_convertible_square                      = 'convertible square.png'
 
 
+gv_fdr_collar_sides                            = 'collar_sides'
+gv_fdr_collar_center                           = 'coller_center'
+gv_fdr_cuff_french                             = 'cuff_french'
+gv_fdr_cuff_singlebutton                       = 'cuff_singlebutton'
+gv_fdr_placket                                 = 'placket'
+gv_fdr_pocket_btnthrough                       = 'pocket_btnthrough'
+gv_fdr_pocket_flap                             = 'pocket_flap'
+gv_fdr_pocket_western                          = 'pocket_western'
 
-gvd_featuretype                                = {
+
+gv_fdr_trims_button_collar_sides               = f'{gv_previewimages}/{gv_fdr_trims}/{gv_fdr_button}/{gv_fdr_collar_sides}'
+gv_fdr_trims_button_collar_center              = f'{gv_previewimages}/{gv_fdr_trims}/{gv_fdr_button}/{gv_fdr_collar_center}'
+gv_fdr_trims_button_cuff_french                = f'{gv_previewimages}/{gv_fdr_trims}/{gv_fdr_button}/{gv_fdr_cuff_french}'
+gv_fdr_trims_button_cuff_singlebutton          = f'{gv_previewimages}/{gv_fdr_trims}/{gv_fdr_button}/{gv_fdr_cuff_singlebutton}'
+gv_fdr_trims_button_placket                    = f'{gv_previewimages}/{gv_fdr_trims}/{gv_fdr_button}/{gv_fdr_placket}'
+gv_fdr_trims_button_pocket_btnthrough          = f'{gv_previewimages}/{gv_fdr_trims}/{gv_fdr_button}/{gv_fdr_pocket_btnthrough}'
+gv_fdr_trims_button_pocket_flap                = f'{gv_previewimages}/{gv_fdr_trims}/{gv_fdr_button}/{gv_fdr_pocket_flap}'
+gv_fdr_trims_button_pocket_western             = f'{gv_previewimages}/{gv_fdr_trims}/{gv_fdr_button}/{gv_fdr_pocket_western}'
+
+
+gv_fdr_trims_thr_button_collar_sides           = f'{gv_previewimages}/{gv_fdr_trims}/{gv_fdr_thread_button}/{gv_fdr_collar_sides}'
+gv_fdr_trims_thr_button_collar_center          = f'{gv_previewimages}/{gv_fdr_trims}/{gv_fdr_thread_button}/{gv_fdr_collar_center}'
+gv_fdr_trims_thr_button_cuff_french            = f'{gv_previewimages}/{gv_fdr_trims}/{gv_fdr_thread_button}/{gv_fdr_cuff_french}'
+gv_fdr_trims_thr_button_cuff_singlebutton      = f'{gv_previewimages}/{gv_fdr_trims}/{gv_fdr_thread_button}/{gv_fdr_cuff_singlebutton}'
+gv_fdr_trims_thr_button_placket                = f'{gv_previewimages}/{gv_fdr_trims}/{gv_fdr_thread_button}/{gv_fdr_placket}'
+gv_fdr_trims_thr_button_pocket_btnthrough      = f'{gv_previewimages}/{gv_fdr_trims}/{gv_fdr_thread_button}/{gv_fdr_pocket_btnthrough}'
+gv_fdr_trims_thr_button_pocket_flap            = f'{gv_previewimages}/{gv_fdr_trims}/{gv_fdr_thread_button}/{gv_fdr_pocket_flap}'
+gv_fdr_trims_thr_button_pocket_western         = f'{gv_previewimages}/{gv_fdr_trims}/{gv_fdr_thread_button}/{gv_fdr_pocket_western}'
+
+
+gv_fdr_trims_thr_btnhole_collar_sides          = f'{gv_previewimages}/{gv_fdr_trims}/{gv_fdr_thread_buttonhole}/{gv_fdr_collar_sides}'
+gv_fdr_trims_thr_btnhole_collar_center         = f'{gv_previewimages}/{gv_fdr_trims}/{gv_fdr_thread_buttonhole}/{gv_fdr_collar_center}'
+gv_fdr_trims_thr_btnhole_cuff_french           = f'{gv_previewimages}/{gv_fdr_trims}/{gv_fdr_thread_buttonhole}/{gv_fdr_cuff_french}'
+gv_fdr_trims_thr_btnhole_cuff_singlebutton     = f'{gv_previewimages}/{gv_fdr_trims}/{gv_fdr_thread_buttonhole}/{gv_fdr_cuff_singlebutton}'
+gv_fdr_trims_thr_btnhole_placket               = f'{gv_previewimages}/{gv_fdr_trims}/{gv_fdr_thread_buttonhole}/{gv_fdr_placket}'
+gv_fdr_trims_thr_btnhole_pocket_btnthrough     = f'{gv_previewimages}/{gv_fdr_trims}/{gv_fdr_thread_buttonhole}/{gv_fdr_pocket_btnthrough}'
+gv_fdr_trims_thr_btnhole_pocket_flap           = f'{gv_previewimages}/{gv_fdr_trims}/{gv_fdr_thread_buttonhole}/{gv_fdr_pocket_flap}'
+gv_fdr_trims_thr_btnhole_pocket_western        = f'{gv_previewimages}/{gv_fdr_trims}/{gv_fdr_thread_buttonhole}/{gv_fdr_pocket_western}'
+
+
+
+gvd_featuretype                                = {    
+    gv_plck_french                             : (gv_fdr_trims_thr_btnhole_placket, gv_fdr_trims_button_placket, gv_fdr_trims_thr_button_placket),
+    gv_plck_seton                              : (gv_fdr_trims_thr_btnhole_placket, gv_fdr_trims_button_placket, gv_fdr_trims_thr_button_placket),
     
-    gv_plck_french                             : (gv_Folder_ThreadButtonHole_Placket, gv_Folder_Button_Placket, gv_Folder_ThreadButton_Placket),
-    gv_plck_seton                              : (gv_Folder_ThreadButtonHole_Placket, gv_Folder_Button_Placket, gv_Folder_ThreadButton_Placket),
+    gv_pckt_miteredbuttonthrought              : (gv_fdr_trims_thr_btnhole_pocket_btnthrough, gv_fdr_trims_button_pocket_btnthrough, gv_fdr_trims_thr_button_pocket_btnthrough),
+    gv_pckt_miteredwithflap                    : (gv_fdr_trims_thr_btnhole_pocket_flap, gv_fdr_trims_button_pocket_flap, gv_fdr_trims_thr_button_pocket_flap),
+    gv_pckt_pleatedmiterdwithflap              : (gv_fdr_trims_thr_btnhole_pocket_flap, gv_fdr_trims_button_pocket_flap, gv_fdr_trims_thr_button_pocket_flap),
+    gv_pckt_western                            : (gv_fdr_trims_thr_btnhole_pocket_western, gv_fdr_trims_button_pocket_western, gv_fdr_trims_thr_button_pocket_western),
     
-    gv_pckt_miteredbuttonthrought              : (gv_Folder_ThreadButtonHole_Pocket1, gv_Folder_Button_Pocket1, gv_Folder_ThreadButton_Pocket1),
-    gv_pckt_miteredwithflap                    : (gv_Folder_ThreadButtonHole_Pocket2, gv_Folder_Button_Pocket2, gv_Folder_ThreadButton_Pocket2),
-    gv_pckt_pleatedmiterdwithflap              : (gv_Folder_ThreadButtonHole_Pocket2, gv_Folder_Button_Pocket2, gv_Folder_ThreadButton_Pocket2),
-    gv_pckt_western                            : (gv_Folder_ThreadButtonHole_Pocket3, gv_Folder_Button_Pocket3, gv_Folder_ThreadButton_Pocket3),
+    gv_cff_singlebtn_mitered                   : (gv_fdr_trims_thr_btnhole_cuff_singlebutton, gv_fdr_trims_button_cuff_singlebutton, gv_fdr_trims_thr_button_cuff_singlebutton),
+    gv_cff_singlebtn_round                     : (gv_fdr_trims_thr_btnhole_cuff_singlebutton, gv_fdr_trims_button_cuff_singlebutton, gv_fdr_trims_thr_button_cuff_singlebutton),
+    gv_cff_singlebtn_square                    : (gv_fdr_trims_thr_btnhole_cuff_singlebutton, gv_fdr_trims_button_cuff_singlebutton, gv_fdr_trims_thr_button_cuff_singlebutton),
+    gv_cff_convertible_square                  : (gv_fdr_trims_thr_btnhole_cuff_singlebutton, gv_fdr_trims_button_cuff_singlebutton, gv_fdr_trims_thr_button_cuff_singlebutton),
     
-    gv_cff_singlebtn_mitered                   : (gv_Folder_ThreadButtonHole_Cuff1, gv_Folder_Button_Cuff1, gv_Folder_ThreadButton_Cuff1),
-    gv_cff_singlebtn_round                     : (gv_Folder_ThreadButtonHole_Cuff1, gv_Folder_Button_Cuff1, gv_Folder_ThreadButton_Cuff1),
-    gv_cff_singlebtn_square                    : (gv_Folder_ThreadButtonHole_Cuff1, gv_Folder_Button_Cuff1, gv_Folder_ThreadButton_Cuff1),
-    gv_cff_convertible_square                  : (gv_Folder_ThreadButtonHole_Cuff1, gv_Folder_Button_Cuff1, gv_Folder_ThreadButton_Cuff1),
+    gv_cff_frenchsquare                        : (gv_fdr_trims_thr_btnhole_cuff_french, gv_fdr_trims_button_cuff_french, gv_fdr_trims_thr_button_cuff_french),
     
-    gv_cff_frenchsquare                        : (gv_Folder_ThreadButtonHole_Cuff2, gv_Folder_Button_Cuff2, gv_Folder_ThreadButton_Cuff2),
-    
-    gv_clr_buttondown                          : (gv_Folder_ThreadButtonHole_Collar1, gv_Folder_Button_Collar1, gv_Folder_ThreadButton_Collar1)
+    gv_clr_buttondown                          : (gv_fdr_trims_thr_btnhole_collar_sides, gv_fdr_trims_button_collar_sides, gv_fdr_trims_thr_button_collar_sides)
     }
 
 
@@ -379,6 +369,10 @@ gv_button_PARIGITT2010                         = 'PARIGI TT2010.png'
 gv_button_QUITOTT1438                          = 'QUITO TT1438.png'
 gv_button_QUITOTT1659                          = 'QUITO TT1659.png'
 gv_button_QUITOTT2010                          = 'QUITO TT2010.png'
-gv_button_SORAVATT1438                          = 'SORAVA TT1438.png'
-gv_button_SORAVATT1448                          = 'SORAVA TT1448.png'
+gv_button_SORAVATT1438                         = 'SORAVA TT1438.png'
+gv_button_SORAVATT1448                         = 'SORAVA TT1448.png'
+
+
+
+
 

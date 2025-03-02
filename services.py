@@ -136,9 +136,7 @@ def getFile(ipFilePath):
     return None
     
 def addFile(ipCanvas, ipFileLocation):
-    
     lv_filelocation = getFile(ipFileLocation)
-    
     
     if lv_filelocation != None:
         ipCanvas = Image.alpha_composite(ipCanvas, lv_filelocation)
@@ -190,14 +188,14 @@ def combineshirt(*ipshirtsfeatures):
     
     
     if gvd_featuretype.get(ipshirtsfeatures[gvi_placket], ['','',''])[lvidx_threadbuttonhole]:        
-        final_canvas = addFile(final_canvas, f'{gvd_featuretype[ipshirtsfeatures[gvi_placket]][lvidx_threadbuttonhole]}/{lv_ThreadButtonHole}')    
+        final_canvas = addFile(final_canvas, f'{gvd_featuretype[ipshirtsfeatures[gvi_placket]][lvidx_threadbuttonhole]}/{lv_ThreadButtonHole}')            
     if gvd_featuretype.get(ipshirtsfeatures[gvi_pocket_Main], ['','',''])[lvidx_threadbuttonhole]:        
         final_canvas = addFile(final_canvas, f'{gvd_featuretype[ipshirtsfeatures[gvi_pocket_Main]][lvidx_threadbuttonhole]}/{lv_ThreadButtonHole}')    
     if gvd_featuretype.get(ipshirtsfeatures[gvi_cuff], ['','',''])[lvidx_threadbuttonhole]:        
         final_canvas = addFile(final_canvas, f'{gvd_featuretype[ipshirtsfeatures[gvi_cuff]][lvidx_threadbuttonhole]}/{lv_ThreadButtonHole}')    
     if gvd_featuretype.get(ipshirtsfeatures[gvi_collar], ['','',''])[lvidx_threadbuttonhole]:        
         final_canvas = addFile(final_canvas, f'{gvd_featuretype[ipshirtsfeatures[gvi_collar]][lvidx_threadbuttonhole]}/{lv_ThreadButtonHole}')    
-    final_canvas = addFile(final_canvas, f'{gv_Folder_ThreadButtonHole_Collar2}/{lv_ThreadButtonHoleCollarCenter}')    
+    final_canvas = addFile(final_canvas, f'{gv_fdr_trims_thr_btnhole_collar_center}/{lv_ThreadButtonHoleCollarCenter}')    
     
     
     
@@ -211,7 +209,7 @@ def combineshirt(*ipshirtsfeatures):
         final_canvas = addFile(final_canvas, f'{gvd_featuretype[ipshirtsfeatures[gvi_collar]][lvidx_button]}/{lv_Button}')    
     
     lv_ButtonCollar = 'Button Collar_White.png' #<<------- temporary hardcode collar button 
-    final_canvas = addFile(final_canvas, f'{gv_Folder_Button_Collar2}/{lv_ButtonCollar}')    
+    final_canvas = addFile(final_canvas, f'{gv_fdr_trims_button_collar_center}/{lv_ButtonCollar}')    
     
     
     if gvd_featuretype.get(ipshirtsfeatures[gvi_placket], ['','',''])[lvidx_thread_button]:        
@@ -223,13 +221,14 @@ def combineshirt(*ipshirtsfeatures):
     if gvd_featuretype.get(ipshirtsfeatures[gvi_collar], ['','',''])[lvidx_thread_button]:        
         final_canvas = addFile(final_canvas, f'{gvd_featuretype[ipshirtsfeatures[gvi_collar]][lvidx_thread_button]}/{lv_ThreadButton}')    
     
-    final_canvas = addFile(final_canvas, f'{gv_Folder_ThreadButton_Collar2}/{lv_ThreadButtonCollarCenter}')    
+    final_canvas = addFile(final_canvas, f'{gv_fdr_trims_thr_button_collar_center}/{lv_ThreadButtonCollarCenter}')    
     
     
-    final_canvas = Image.alpha_composite(final_canvas, murano_label())
+    # final_canvas = Image.alpha_composite(final_canvas, murano_label())
         
-    final_canvas.show()
-    lv_filename = f"output/tmp/shirtwithfeatures_{randint(1, 999999999)}.png"
+    if ipshirtsfeatures[gvi_showsample]:
+        final_canvas.show()
+    lv_filename = f"tmp/samples/shirtwithfeatures_{randint(1, 999999999)}.png"
     final_canvas.save(lv_filename)
     
     return lv_filename

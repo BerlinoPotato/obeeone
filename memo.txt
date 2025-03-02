@@ -1,0 +1,13 @@
+Action list : part images
+1. Dup pocket 
+2. shift pocket
+3. shift short sleeve
+4. shift banded collar (shell and contrast)
+
+
+
+Action list : trims
+1. cropped thread (buttonhole, button)
+2. generate thread to part images
+3. cropped button, rotate, resize, drill transparent hole 
+4. generate button to part images
